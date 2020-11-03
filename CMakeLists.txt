@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(cub3d C)
 
 set(CMAKE_C_STANDARD 99)
-set(SOURCE_EXE  main.c parsing.c map.c gnl/get_next_line.c)
+set(SOURCE_EXE  main.c map.c gnl/get_next_line.c)
 
 
 

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:35:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/10/31 22:00:12 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 00:13:29 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ char **make_map(t_list **head, int size)
         tmp = tmp->next;
     }
 
+    i = -1;
+    while (map[++i])
+        ft_putendl_fd(map[i], 1);
+
     return (map);
+
 }
 
 char **map_read (int fd)
