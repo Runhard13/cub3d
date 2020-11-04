@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/04 20:14:47 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:38:33 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CUB3D_CUB3D_H
 
 # ifndef SCALE
-#  define SCALE 16
+#  define SCALE 64
 # endif
 
 #include "libft/libft.h"
