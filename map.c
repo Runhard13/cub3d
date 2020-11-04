@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:59:45 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/01 20:41:51 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 15:41:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,50 @@ void draw_blue_square (t_data img, int x_start, int y_start, int size)
             my_mlx_pixel_put(&img, x, y, 0x000000FF);
         }
     }
+}
+
+void draw(int fd, t_all all)
+{
+
+    char *line = NULL;
+    int x = 0;
+    int y = 0;
+    while (get_next_line(fd, &line))
+    {
+        while (*(line + x))
+        {
+            if (*(line + x) == 'N')
+            {
+                all.plr->x = x;
+                all.plr->y = y;
+                draw_player(*all.win, all.plr->x*50, all.plr->y*50, 50);
+
+            }
+            if (*(line + x) == '1')
+                draw_red_square(*all.win, x*50, y*50, 50);
+            if (*(line + x) == '0')
+                draw_blue_square(*all.win, x*50, y*50, 50);
+
+            x++;
+        }
+        y++;
+        x = 0;
+    }
+	while (*(line + x))
+	{
+		if (*(line + x) == 'N')
+		{
+			all.plr->x = x;
+			all.plr->y = y;
+			draw_player(*all.win, all.plr->x*50, all.plr->y*50, 50);
+
+		}
+		if (*(line + x) == '1')
+			draw_red_square(*all.win, x*50, y*50, 50);
+		if (*(line + x) == '0')
+			draw_blue_square(*all.win, x*50, y*50, 50);
+
+		x++;
+	}
+	mlx_put_image_to_window(all.win, all.win->mlx_win, all.win->img, 0, 0);
 }

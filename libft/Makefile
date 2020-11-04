@@ -6,10 +6,15 @@
 #    By: null <null@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/27 02:12:15 by null              #+#    #+#              #
-#    Updated: 2020/05/31 19:00:52 by null             ###   ########.fr        #
+#    Updated: 2020/11/04 12:55:00 by cdrennan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 NAME=libft.a
+
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra -I. -c
 
 SRCS=	ft_atoi.c \
 ft_bzero.c \
@@ -57,10 +62,9 @@ INCLUDES=./
 
 all: $(NAME)
 
-$(NAME): $(SRCS) libft.h
-	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
-	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
+$(NAME): $(OBJECTS)
+	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJECTS) $(OBJECTS_B)
@@ -70,7 +74,6 @@ fclean: clean
 
 re: fclean all
 
-bonus:
-	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS_B)
-	@ar rc $(NAME) $(OBJECTS_B)
-	@ranlib $(NAME)
+bonus: $(OBJECTS_B)
+	ar rc $(NAME) $(OBJECTS_B)
+	ranlib $(NAME)

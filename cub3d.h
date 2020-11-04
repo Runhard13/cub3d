@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/03 23:16:23 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 15:30:05 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,39 @@
 #include "minilibx_mms_20200219/mlx.h"
 
 typedef struct  s_data {
-    void        *img;
+
+	void    	*mlx;
+	void    	*mlx_win;
+	void        *img;
     char        *addr;
     int         bits_per_pixel;
     int         line_length;
     int         endian;
 }               t_data;
 
-char **map_read (int fd);
+typedef struct	s_plr //структура для игрока и луча
+{
+	float		x;
+	float		y;
+	float		dir;
+	float		start;
+	float		end;
+}				  t_plr;
+
+typedef struct	s_all // структура для всего вместе
+{
+	t_data		*win;
+	t_plr		*plr;
+}				  t_all;
+
+
+
+
 void            my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void draw_red_square (t_data img, int x, int y, int size);
 void draw_blue_square (t_data img, int x_start, int y_start, int size);
+void draw_player (t_data img, int x_start, int y_start, int size);
+int             key_press(int keycode, t_all all);
+void draw(int fd, t_all all);
 
 #endif //CUB3D_CUB3D_H
