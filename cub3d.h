@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/04 16:05:25 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 20:14:47 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CUB3D_CUB3D_H
 
 # ifndef SCALE
-#  define SCALE 50
+#  define SCALE 16
 # endif
 
 #include "libft/libft.h"
@@ -57,6 +57,9 @@ void draw_red_square (t_data img, int x, int y, int size);
 void draw_blue_square (t_data img, int x_start, int y_start, int size);
 void draw_player (t_data img, int x_start, int y_start, int size);
 int             key_press(int keycode, t_all *all);
-void draw(int fd, t_all *all);
+char	**make_map(t_list **head, int size);
+char **read_map (int fd);
+void draw_map(t_all *all);
+void redraw_map(t_all *all);
 
 #endif //CUB3D_CUB3D_H
