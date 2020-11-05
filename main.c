@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/04 19:52:39 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/04 21:21:29 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main()
 
 
     img.mlx = mlx_init();
-    img.mlx_win = mlx_new_window(img.mlx, 1980, 1620, "2d map");
-    img.img = mlx_new_image(img.mlx, 1980, 1620);
+    img.mlx_win = mlx_new_window(img.mlx, 1920, 1080, "2d map");
+    img.img = mlx_new_image(img.mlx, 1920, 1080);
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
     all.plr = &plr;

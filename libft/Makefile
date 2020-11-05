@@ -6,7 +6,7 @@
 #    By: null <null@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/27 02:12:15 by null              #+#    #+#              #
-#    Updated: 2020/11/04 12:55:00 by cdrennan         ###   ########.fr        #
+#    Updated: 2020/11/04 23:41:08 by cdrennan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,6 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(OBJECTS_B)
+bonus: $(NAME)
 	ar rc $(NAME) $(OBJECTS_B)
 	ranlib $(NAME)

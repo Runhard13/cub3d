@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:18:24 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/04 20:14:47 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/05 21:05:25 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void draw_map(t_all *all)
 			{
 				all->plr->x = x;
 				all->plr->y = y;
-				draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
+				all->plr->pov = 90;
+				//draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
+				raycaster (all);
+
 			}
 			if (all->map[y][x] == '1')
 				draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);
@@ -92,6 +95,7 @@ void redraw_map(t_all *all)
 		}
 		y++;
 	}
-	draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
+	//draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
+	raycaster (all);
 	mlx_put_image_to_window(all->win, all->win->mlx_win, all->win->img, 0, 0);
 }
