@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:18:24 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/05 21:05:25 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/06 16:16:13 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,13 @@ void draw_map(t_all *all)
 		{
 			if (all->map[y][x] == 'N')
 			{
-				all->plr->x = x;
-				all->plr->y = y;
-				all->plr->pov = 90;
+				all->plr->x = x*SCALE;
+				all->plr->y = y*SCALE;
+				all->plr->pov = M_PI/2;
+				draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
 				//draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
-				raycaster (all);
-
+				//draw_player_ray(all);
+				raycaster(all);
 			}
 			if (all->map[y][x] == '1')
 				draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);

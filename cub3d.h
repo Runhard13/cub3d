@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/05 20:38:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/06 15:25:07 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,20 @@ typedef struct  s_data // картинка
 
 typedef struct	s_plr // игрок
 {
-	float		x;
-	float		y;
-	float 		pov;
-	float 		fov;
-	float 		left_ray;
-	float 		right_ray;
+	double		x;
+	double		y;
+	double 		pov;
+	double 		fov;
+	double		left_ray;
+	double		right_ray;
+	double 		ray_x;
+	double 		ray_y;
 }				  t_plr;
 
 typedef struct	s_ray // луч
 {
-	float		x;
-	float		y;
+	double		x;
+	double		y;
 	int 		number_of_rays;
 
 }				  t_ray;
@@ -91,5 +93,6 @@ char **read_map (int fd);
 void draw_map(t_all *all);
 void redraw_map(t_all *all);
 void raycaster (t_all *all);
+void draw_player_ray (t_all *all);
 
 #endif //CUB3D_CUB3D_H

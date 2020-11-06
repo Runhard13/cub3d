@@ -17,23 +17,23 @@ int             key_press(int keycode, t_all *all)
 {
 
 	mlx_clear_window(all->win->mlx, all->win->mlx_win);
-	if (keycode == 13)
+	if (keycode == W || keycode == UP)
 	{
 		all->plr->y += sin(all->plr->pov) * 4;
 		all->plr->x += cos(all->plr->pov) * 4;
 	}
 
-	if (keycode == 1)
+	if (keycode == S || keycode == DOWN)
 	{
 		all->plr->y -= sin(all->plr->pov) * 4;
 		all->plr->x -= cos(all->plr->pov) * 4;
 	}
 
-	if (keycode == 0)
+	if (keycode == A || keycode == LEFT)
 		all->plr->pov -= 6;
-	if (keycode == 2)
+	if (keycode == D || keycode == RIGHT)
 		all->plr->pov += 6;
-	if (keycode == 53)
+	if (keycode == ESC)
 		exit(0);
 	redraw_map(all);
 
