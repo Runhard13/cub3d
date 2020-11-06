@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/04 20:23:34 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/06 20:53:46 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,47 @@ int             key_press(int keycode, t_all *all)
 	mlx_clear_window(all->win->mlx, all->win->mlx_win);
 	if (keycode == W || keycode == UP)
 	{
-		all->plr->y += sin(all->plr->pov) * 4;
-		all->plr->x += cos(all->plr->pov) * 4;
+		if((all->map[(int)((all->plr->y) + (sin(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) + (cos(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		{
+			all->plr->y += sin(all->plr->pov) * SPEED;
+			all->plr->x += cos(all->plr->pov) * SPEED;
+		}
 	}
-
 	if (keycode == S || keycode == DOWN)
 	{
-		all->plr->y -= sin(all->plr->pov) * 4;
-		all->plr->x -= cos(all->plr->pov) * 4;
+		if((all->map[(int)((all->plr->y) - (sin(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) - (cos(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		{
+			all->plr->y -= sin(all->plr->pov) * SPEED;
+			all->plr->x -= cos(all->plr->pov) * SPEED;
+		}
 	}
-
-	if (keycode == A || keycode == LEFT)
-		all->plr->pov -= 6;
-	if (keycode == D || keycode == RIGHT)
-		all->plr->pov += 6;
+	if (keycode == E || keycode == RIGHT)
+	{
+			all->plr->pov += M_PI/30;
+	}
+	if (keycode == Q || keycode == LEFT)
+	{
+			all->plr->pov -= M_PI/30;
+	}
 	if (keycode == ESC)
 		exit(0);
+
+	if (keycode == A)
+	{
+		if((all->map[(int)((all->plr->y) - (cos(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) + (sin(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		{
+			all->plr->y -= cos(all->plr->pov) * SPEED;
+			all->plr->x += sin(all->plr->pov) * SPEED;
+		}
+	}
+	if (keycode == D)
+	{
+		if((all->map[(int)((all->plr->y) + (cos(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) - (sin(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		{
+			all->plr->y += cos(all->plr->pov) * SPEED;
+			all->plr->x -= sin(all->plr->pov) * SPEED;
+		}
+	}
 	redraw_map(all);
 
 	return (0);

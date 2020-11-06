@@ -6,14 +6,14 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/06 15:25:07 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/06 20:40:25 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_CUB3D_H
 #define CUB3D_CUB3D_H
 
-#  define SCALE 10
+#  define SCALE 32
 #  define ESC 53
 #  define W 13
 #  define A 0
@@ -23,6 +23,9 @@
 #  define DOWN 125
 #  define LEFT 123
 #  define RIGHT 124
+#define Q 12
+#define E 14
+#define  SPEED 4
 
 #include "libft/libft.h"
 #include "gnl/get_next_line.h"
