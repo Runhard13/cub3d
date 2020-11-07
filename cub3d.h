@@ -6,23 +6,23 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/06 20:40:25 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/07 21:00:59 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_CUB3D_H
 #define CUB3D_CUB3D_H
 
-#  define SCALE 32
-#  define ESC 53
-#  define W 13
-#  define A 0
-#  define S 1
-#  define D 2
-#  define UP 126
-#  define DOWN 125
-#  define LEFT 123
-#  define RIGHT 124
+#define SCALE 5
+#define ESC 53
+#define W 13
+#define A 0
+#define S 1
+#define D 2
+#define UP 126
+#define DOWN 125
+#define LEFT 123
+#define RIGHT 124
 #define Q 12
 #define E 14
 #define  SPEED 4
@@ -57,21 +57,6 @@ typedef struct	s_plr // игрок
 	double 		ray_y;
 }				  t_plr;
 
-typedef struct	s_ray // луч
-{
-	double		x;
-	double		y;
-	int 		number_of_rays;
-
-}				  t_ray;
-
-typedef struct	s_hit // расстояние до преграды
-{
-	float		x;
-	float		y;
-}				  t_hit;
-
-
 
 
 typedef struct	s_all // все вместе
@@ -79,8 +64,6 @@ typedef struct	s_all // все вместе
 	t_data		*win;
 	t_plr		*plr;
 	char 		**map;
-	t_ray		*ray;
-	t_hit		*hit;
 }				  t_all;
 
 
@@ -97,5 +80,8 @@ void draw_map(t_all *all);
 void redraw_map(t_all *all);
 void raycaster (t_all *all);
 void draw_player_ray (t_all *all);
+void draw_line (t_all *all, double dist, int i);
+int rounding (int dist);
+void big_square(t_all *all, int x_start, int y_start);
 
 #endif //CUB3D_CUB3D_H

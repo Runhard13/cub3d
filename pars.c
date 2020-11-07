@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:18:24 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/06 16:16:13 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/07 20:41:11 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,43 +60,45 @@ void draw_map(t_all *all)
 			{
 				all->plr->x = x*SCALE;
 				all->plr->y = y*SCALE;
-				all->plr->pov = M_PI/2;
-				draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
+				all->plr->pov = -M_PI/2;
+				//draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
 				//draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
 				//draw_player_ray(all);
-				raycaster(all);
 			}
-			if (all->map[y][x] == '1')
-				draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);
-			if (all->map[y][x] == '0')
-				draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
+			//if (all->map[y][x] == '1')
+			//	draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);
+			//if (all->map[y][x] == '0')
+				//draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
+
 			x++;
 		}
 		y++;
 	}
+	big_square(all, 0, 0);
+	raycaster(all);
 	mlx_put_image_to_window(all->win, all->win->mlx_win, all->win->img, 0, 0);
 }
 
 void redraw_map(t_all *all)
 {
-	int x = 0;
-	int y = 0;
-	while (all->map[y])
-	{
-		x = 0;
-		while (all->map[y][x])
-		{
-			if (all->map[y][x] == 'N')
-				draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
-			if (all->map[y][x] == '1')
-				draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);
-			if (all->map[y][x] == '0')
-				draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
-			x++;
-		}
-		y++;
-	}
+	//int x = 0;
+	//int y = 0;
+	//while (all->map[y])
+	//{ x = 0;
+	//	while (all->map[y][x])
+	//	{
+	//		if (all->map[y][x] == 'N')
+	//			draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
+		//	if (all->map[y][x] == '1')
+	//			draw_red_square(*all->win, x * SCALE, y * SCALE, SCALE);
+		//	if (all->map[y][x] == '0')
+		//		draw_blue_square(*all->win, x * SCALE, y * SCALE, SCALE);
+		//	x++;
+	//	}
+	//	y++;
+//	}
 	//draw_player(*all->win, all->plr->x * SCALE, all->plr->y * SCALE, SCALE);
+	big_square(all, 0, 0);
 	raycaster (all);
 	mlx_put_image_to_window(all->win, all->win->mlx_win, all->win->img, 0, 0);
 }
