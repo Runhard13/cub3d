@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 20:30:26 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/07 22:51:31 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 int             key_press(int keycode, t_all *all)
 {
 
-	mlx_clear_window(all->win->mlx, all->win->mlx_win);
+	mlx_clear_window(all->img->mlx, all->img->mlx_win);
 
 	if (keycode == W || keycode == UP)
 	{
-		if((all->map[(int)((all->plr->y) + (sin(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) + (cos(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		if((all->map[(int)((all->plr->y) + (sin(all->plr->pov) * SPEED))][(int)((all->plr->x) + (cos(all->plr->pov) * SPEED))] != '1'))
 		{
 			all->plr->y += sin(all->plr->pov) * SPEED;
 			all->plr->x += cos(all->plr->pov) * SPEED;
@@ -28,7 +28,7 @@ int             key_press(int keycode, t_all *all)
 	}
 	if (keycode == S || keycode == DOWN)
 	{
-		if((all->map[(int)((all->plr->y) - (sin(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) - (cos(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		if((all->map[(int)((all->plr->y) - (sin(all->plr->pov) * SPEED))][(int)((all->plr->x) - (cos(all->plr->pov) * SPEED))] != '1'))
 		{
 			all->plr->y -= sin(all->plr->pov) * SPEED;
 			all->plr->x -= cos(all->plr->pov) * SPEED;
@@ -47,7 +47,7 @@ int             key_press(int keycode, t_all *all)
 
 	if (keycode == A)
 	{
-		if((all->map[(int)((all->plr->y) - (cos(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) + (sin(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		if((all->map[(int)((all->plr->y) - (cos(all->plr->pov) * SPEED))][(int)((all->plr->x) + (sin(all->plr->pov) * SPEED))] != '1'))
 		{
 			all->plr->y -= cos(all->plr->pov) * SPEED;
 			all->plr->x += sin(all->plr->pov) * SPEED;
@@ -55,15 +55,13 @@ int             key_press(int keycode, t_all *all)
 	}
 	if (keycode == D)
 	{
-		if((all->map[(int)((all->plr->y) + (cos(all->plr->pov) * SPEED)) / SCALE][(int)((all->plr->x) - (sin(all->plr->pov) * SPEED)) / SCALE] != '1'))
+		if((all->map[(int)((all->plr->y) + (cos(all->plr->pov) * SPEED))][(int)((all->plr->x) - (sin(all->plr->pov) * SPEED))] != '1'))
 		{
 			all->plr->y += cos(all->plr->pov) * SPEED;
 			all->plr->x -= sin(all->plr->pov) * SPEED;
 		}
 	}
-
-	redraw_map(all);
-
-	return (0);
+	big_square(all);
+	raycaster(all);
 }
 

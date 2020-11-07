@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void draw_player (t_data img, int x_start, int y_start, int size)
 {

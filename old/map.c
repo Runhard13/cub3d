@@ -6,11 +6,11 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:59:45 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 20:50:50 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/07 20:51:30 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 #include <stdio.h>
 
 void            my_mlx_pixel_put(t_data *data, int x, int y, int color)

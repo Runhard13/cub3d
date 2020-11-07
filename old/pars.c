@@ -6,11 +6,11 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:18:24 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 20:41:11 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/07 22:05:34 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	**make_map(t_list **head, int size)
 {
