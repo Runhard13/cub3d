@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 19:12:49 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 21:19:17 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int             key_press(int keycode, t_all *all)
 
 	if (keycode == W || keycode == UP)
 	{
-		if (all->map[(int)(all->plr->posX + all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] == '0')
+		if (all->map[(int)(all->plr->posX + all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] != '1')
 			all->plr->posX += all->plr->dirX * moveSpeed;
-		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY + all->plr->dirY * moveSpeed)] == '0')
+		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY + all->plr->dirY * moveSpeed)] != '1')
 			all->plr->posY += all->plr->dirY * moveSpeed;
 	}
 	if (keycode == S || keycode == DOWN)
 	{
-		if(all->map[(int)(all->plr->posX - all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] == '0')
+		if(all->map[(int)(all->plr->posX - all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] != '1')
 			all->plr->posX -= all->plr->dirX * moveSpeed;
-		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY - all->plr->dirY * moveSpeed)] == '0')
+		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY - all->plr->dirY * moveSpeed)] != '1')
 			all->plr->posY -= all->plr->dirY * moveSpeed;
 	}
 	if (keycode == E || keycode == RIGHT)
@@ -51,6 +51,21 @@ int             key_press(int keycode, t_all *all)
 		all->plr->planeX = all->plr->planeX * cos(rotSpeed) - all->plr->planeY * sin(rotSpeed);
 		all->plr->planeY = oldPlaneX * sin(rotSpeed) + all->plr->planeY * cos(rotSpeed);
 	}
+	if (keycode == A )
+	{
+		if (all->map[(int)all->plr->posY] [(int)(all->plr->posX - all->plr->planeX * moveSpeed)] != '1')
+			all->plr->posX -= all->plr->planeX * moveSpeed;
+		if (all->map[(int)(all->plr->posY - all->plr->planeY * moveSpeed)][(int)all->plr->posX] != '1')
+			all->plr->posY -= all->plr->planeY * moveSpeed;
+	}
+	if (keycode == D )
+	{
+		if (all->map[(int)all->plr->posY][(int)(all->plr->posX + all->plr->planeX * moveSpeed)] != '1')
+			all->plr->posX += all->plr->planeX * moveSpeed;
+		if (all->map[(int)(all->plr->posY + all->plr->planeY * moveSpeed)][(int)all->plr->posX] != '1')
+			all->plr->posY += all->plr->planeY * moveSpeed;
+	}
+
 	if (keycode == ESC)
 		exit(0);
 

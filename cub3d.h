@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 19:58:35 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 19:58:48 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 #define rotSpeed 0.1
 #define w 640
 #define h 480
+#define texWidth 64
+#define texHeight 64
 
 #include "libft/libft.h"
 #include "gnl/get_next_line.h"

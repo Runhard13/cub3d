@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 20:01:08 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 20:01:50 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,8 @@ int main()
     all.img = &img;
     all.map = read_map(fd);
 	find_player (&all);
-    all.plr->planeX = 0;
-    all.plr->planeY = 0.66;
+    all.plr->planeY = 0;
+    all.plr->planeX = 0.66;
    // all.plr->dirY = 0;
   //  all.plr->dirX = -1;
   //  all.plr->posY = 10;
