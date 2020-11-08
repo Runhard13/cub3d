@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 22:13:10 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 19:58:48 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,54 @@ char **read_map (int fd)
 	amount++;
 	close(fd);
 	return (make_map(&head, amount));
+}
+
+int find_player (t_all *all)
+{
+	int x = 0;
+	int y = 0;
+	while (all->map[y])
+	{
+		x = 0;
+		while (all->map[y][x])
+		{
+			if (all->map[y][x] == 'N')
+			{
+				all->plr->posX = x+1;
+				all->plr->posY = y+1;
+				all->plr->dirX = 0;
+				all->plr->dirY = 1;
+				x++;
+			}
+			if (all->map[y][x] == 'W')
+			{
+				all->plr->posX = x+1;
+				all->plr->posY = y+1;
+				all->plr->dirX = -1;
+				all->plr->dirY = 0;
+				x++;
+			}
+			if (all->map[y][x] == 'S')
+			{
+				all->plr->posX = x+1;
+				all->plr->posY = y+1;
+				all->plr->dirX = 0;
+				all->plr->dirY = -1;
+				x++;
+			}
+			if (all->map[y][x] == 'E')
+			{
+				all->plr->posX = x+1;
+				all->plr->posY = y+1;
+				all->plr->dirX = 0;
+				all->plr->dirY = 1;
+				x++;
+			}
+			else
+				x++;
+		}
+		y++;
+	}
+return 0;
 }
 

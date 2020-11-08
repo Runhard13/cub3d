@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "../another cub/cub3d.h"
+#include "../../another cub/cub3d.h"
 
 void draw_line (t_all *all, double dist, int i)
 {

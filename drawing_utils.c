@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 23:13:31 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 19:14:03 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,16 @@ void            my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void draw_line (t_all *all, double height, int x)
+void draw_line (t_all *all, int side, int drawStart, int drawEnd, int x)
 {
-	int start = -height / 2 + h / 2;
-	if (start < 0)
-		start = 0;
-	int end = height / 2 + h / 2;
-	if (end > h)
-		end = h - 1;
-	while (start < end)
-	{
-		my_mlx_pixel_put(all->img, x, start, 0x000000FF);
-		start++;
-	}
+	int color;
+	if (side == 0)
+		color = 0x7076c7;
+	else
+		color = 0x5c60a1;
+	while (drawStart++ < drawEnd)
+		my_mlx_pixel_put(all->img, x, drawStart, color);
+
 }
 
 void big_square(t_all *all)
@@ -44,7 +41,7 @@ void big_square(t_all *all)
 		x = 0;
 		while (x++ < (w-1))
 		{
-			my_mlx_pixel_put(all->img, x, y, 0xFFFFFF);
+			my_mlx_pixel_put(all->img, x, y, 0x030303);
 		}
 	}
 }

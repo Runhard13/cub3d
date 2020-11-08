@@ -6,12 +6,11 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 22:51:31 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 19:12:49 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <stdio.h>
 
 int             key_press(int keycode, t_all *all)
 {
@@ -20,48 +19,43 @@ int             key_press(int keycode, t_all *all)
 
 	if (keycode == W || keycode == UP)
 	{
-		if((all->map[(int)((all->plr->y) + (sin(all->plr->pov) * SPEED))][(int)((all->plr->x) + (cos(all->plr->pov) * SPEED))] != '1'))
-		{
-			all->plr->y += sin(all->plr->pov) * SPEED;
-			all->plr->x += cos(all->plr->pov) * SPEED;
-		}
+		if (all->map[(int)(all->plr->posX + all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] == '0')
+			all->plr->posX += all->plr->dirX * moveSpeed;
+		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY + all->plr->dirY * moveSpeed)] == '0')
+			all->plr->posY += all->plr->dirY * moveSpeed;
 	}
 	if (keycode == S || keycode == DOWN)
 	{
-		if((all->map[(int)((all->plr->y) - (sin(all->plr->pov) * SPEED))][(int)((all->plr->x) - (cos(all->plr->pov) * SPEED))] != '1'))
-		{
-			all->plr->y -= sin(all->plr->pov) * SPEED;
-			all->plr->x -= cos(all->plr->pov) * SPEED;
-		}
+		if(all->map[(int)(all->plr->posX - all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] == '0')
+			all->plr->posX -= all->plr->dirX * moveSpeed;
+		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY - all->plr->dirY * moveSpeed)] == '0')
+			all->plr->posY -= all->plr->dirY * moveSpeed;
 	}
 	if (keycode == E || keycode == RIGHT)
 	{
-			all->plr->pov += M_PI/30;
+		//both camera direction and camera plane must be rotated
+		double oldDirX = all->plr->dirX;
+		all->plr->dirX = all->plr->dirX * cos(-rotSpeed) - all->plr->dirY * sin(-rotSpeed);
+		all->plr->dirY = oldDirX * sin(-rotSpeed) + all->plr->dirY * cos(-rotSpeed);
+		double oldPlaneX = all->plr->planeX;
+		all->plr->planeX = all->plr->planeX * cos(-rotSpeed) - all->plr->planeY * sin(-rotSpeed);
+		all->plr->planeY = oldPlaneX * sin(-rotSpeed) + all->plr->planeY * cos(-rotSpeed);
 	}
 	if (keycode == Q || keycode == LEFT)
 	{
-			all->plr->pov -= M_PI/30;
+		//both camera direction and camera plane must be rotated
+		double oldDirX = all->plr->dirX;
+		all->plr->dirX = all->plr->dirX * cos(rotSpeed) - all->plr->dirY * sin(rotSpeed);
+		all->plr->dirY = oldDirX * sin(rotSpeed) + all->plr->dirY * cos(rotSpeed);
+		double oldPlaneX = all->plr->planeX;
+		all->plr->planeX = all->plr->planeX * cos(rotSpeed) - all->plr->planeY * sin(rotSpeed);
+		all->plr->planeY = oldPlaneX * sin(rotSpeed) + all->plr->planeY * cos(rotSpeed);
 	}
 	if (keycode == ESC)
 		exit(0);
 
-	if (keycode == A)
-	{
-		if((all->map[(int)((all->plr->y) - (cos(all->plr->pov) * SPEED))][(int)((all->plr->x) + (sin(all->plr->pov) * SPEED))] != '1'))
-		{
-			all->plr->y -= cos(all->plr->pov) * SPEED;
-			all->plr->x += sin(all->plr->pov) * SPEED;
-		}
-	}
-	if (keycode == D)
-	{
-		if((all->map[(int)((all->plr->y) + (cos(all->plr->pov) * SPEED))][(int)((all->plr->x) - (sin(all->plr->pov) * SPEED))] != '1'))
-		{
-			all->plr->y += cos(all->plr->pov) * SPEED;
-			all->plr->x -= sin(all->plr->pov) * SPEED;
-		}
-	}
 	big_square(all);
-	raycaster(all);
+	drawscreen(all);
+	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/07 23:09:01 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/08 19:58:35 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 #define RIGHT 124
 #define Q 12
 #define E 14
-#define  SPEED 1
-#define w 1920
-#define h 1080
+#define  moveSpeed 0.5
+#define rotSpeed 0.1
+#define w 640
+#define h 480
 
 #include "libft/libft.h"
 #include "gnl/get_next_line.h"
@@ -47,16 +48,14 @@ typedef struct  s_data // картинка
     int         endian;
 }               t_data;
 
-typedef struct	s_plr // игрок
+typedef struct	s_plr // player and ray
 {
-	double		x;
-	double		y;
-	double 		pov;
-	double 		fov;
-	double		left_ray;
-	double		right_ray;
-	double 		ray_x;
-	double 		ray_y;
+	double		posX;
+	double		posY;
+	double 		dirX;
+	double 		dirY;
+	double		planeX;
+	double		planeY;
 }				  t_plr;
 
 
@@ -72,18 +71,12 @@ typedef struct	s_all // все вместе
 
 
 void            my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void draw_red_square (t_data img, int x, int y, int size);
-void draw_blue_square (t_data img, int x_start, int y_start, int size);
-void draw_player (t_data img, int x_start, int y_start, int size);
 int             key_press(int keycode, t_all *all);
 char	**make_map(t_list **head, size_t size);
 char **read_map (int fd);
-void draw_map(t_all *all);
-void redraw_map(t_all *all);
-void raycaster (t_all *all);
-void draw_player_ray (t_all *all);
-void draw_line (t_all *all, double dist, int i);
-int rounding (int dist);
+void draw_line (t_all *all, int side, int drawStart, int drawEnd, int x);
 void big_square(t_all *all);
+void drawscreen(t_all *all);
+int find_player (t_all *all);
 
 #endif //CUB3D_CUB3D_H
