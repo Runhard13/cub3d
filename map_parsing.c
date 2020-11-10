@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 15:19:00 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 21:39:37 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int find_player (t_all *all)
 {
 	int x = 0;
 	int y = 0;
+
 	while (all->map[y])
 	{
 		x = 0;
@@ -59,8 +60,8 @@ int find_player (t_all *all)
 		{
 			if (all->map[y][x] == 'N')
 			{
-				all->plr->posX = x;
-				all->plr->posY = y;
+				all->plr->posX = x + 0.5;
+				all->plr->posY = y + 0.5;
 				all->plr->dirX = 0;
 				all->plr->dirY = -1;
 				all->plr->planeY = 0;
@@ -69,8 +70,8 @@ int find_player (t_all *all)
 			}
 			if (all->map[y][x] == 'W')
 			{
-				all->plr->posX = x;
-				all->plr->posY = y;
+				all->plr->posX = x + 0.5;
+				all->plr->posY = y + 0.5;
 				all->plr->dirX = -1;
 				all->plr->dirY = 0;
 				all->plr->planeY = -0.66;
@@ -79,8 +80,8 @@ int find_player (t_all *all)
 			}
 			if (all->map[y][x] == 'S')
 			{
-				all->plr->posX = x;
-				all->plr->posY = y;
+				all->plr->posX = x + 0.5;
+				all->plr->posY = y + 0.5;
 				all->plr->dirX = 0;
 				all->plr->dirY = 1;
 				all->plr->planeY = 0;
@@ -89,14 +90,23 @@ int find_player (t_all *all)
 			}
 			if (all->map[y][x] == 'E')
 			{
-				all->plr->posX = x;
-				all->plr->posY = y;
+				all->plr->posX = x + 0.5;
+				all->plr->posY = y + 0.5;
 				all->plr->dirX = 1;
 				all->plr->dirY = 0;
 				all->plr->planeY = 0.66;
 				all->plr->planeX = 0;
 				x++;
 			}
+			if (all->map[y][x] == '2')
+			{
+
+				all->item->x = x;
+				all->item->y = y;
+				all->item->sprite_count++;
+				x++;
+			}
+
 			else
 				x++;
 		}

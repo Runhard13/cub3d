@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 17:05:08 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 21:32:34 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 #define E 14
 #define  moveSpeed 0.5
 #define rotSpeed 0.1
-#define w 640
-#define h 480
+#define w 1920
+#define h 1080
 #define texS 1
 #define texN 2
 #define	texW 3
@@ -62,7 +62,7 @@ typedef struct	s_plr // player and ray
 	int 		side;
 }				  t_plr;
 
-typedef struct	s_tex // все вместе
+typedef struct	s_tex // textures
 {
 	void    *tex_img;
 	char    *addr;
@@ -74,6 +74,15 @@ typedef struct	s_tex // все вместе
 	int     tex_height;
 }				  t_tex;
 
+typedef struct	s_spr // sprite
+{
+	int x;
+	int y;
+	int sprite_count;
+	struct s_spr *next;
+
+}				  t_spr;
+
 
 typedef struct	s_all // все вместе
 {
@@ -84,6 +93,8 @@ typedef struct	s_all // все вместе
 	t_tex		*south;
 	t_tex		*east;
 	t_tex		*west;
+	t_tex		*sprite;
+	t_spr	*item;
 }				  t_all;
 
 
@@ -100,5 +111,7 @@ void get_tex_data (t_all *all);
 int get_color (t_tex *tex, int x, int y);
 int wall_side (int side, double rayDirX, double rayDirY);
 void sky_floor(t_all *all);
+void sprites_open (t_all *all);
+void	sortSprites(int *order, double *distance, int number);
 
 #endif //CUB3D_CUB3D_H
