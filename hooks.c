@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 21:19:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 17:07:48 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int             key_press(int keycode, t_all *all)
 
 	if (keycode == W || keycode == UP)
 	{
-		if (all->map[(int)(all->plr->posX + all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] != '1')
+		if (all->map[(int)(all->plr->posY + all->plr->dirY * moveSpeed)][(int)(all->plr->posX)] != '1')
 			all->plr->posX += all->plr->dirX * moveSpeed;
-		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY + all->plr->dirY * moveSpeed)] != '1')
+		if(all->map[(int)(all->plr->posY)][(int)(all->plr->posX + all->plr->dirX * moveSpeed)] != '1')
 			all->plr->posY += all->plr->dirY * moveSpeed;
 	}
 	if (keycode == S || keycode == DOWN)
 	{
-		if(all->map[(int)(all->plr->posX - all->plr->dirX * moveSpeed)][(int)(all->plr->posY)] != '1')
+		if(all->map[(int)(all->plr->posY - all->plr->dirY * moveSpeed)][(int)(all->plr->posX)] != '1')
 			all->plr->posX -= all->plr->dirX * moveSpeed;
-		if(all->map[(int)(all->plr->posX)][(int)(all->plr->posY - all->plr->dirY * moveSpeed)] != '1')
+		if(all->map[(int)(all->plr->posY)][(int)(all->plr->posX - all->plr->dirX * moveSpeed)] != '1')
 			all->plr->posY -= all->plr->dirY * moveSpeed;
 	}
 	if (keycode == E || keycode == RIGHT)
@@ -69,7 +69,7 @@ int             key_press(int keycode, t_all *all)
 	if (keycode == ESC)
 		exit(0);
 
-	big_square(all);
+	sky_floor(all);
 	drawscreen(all);
 	return (0);
 }

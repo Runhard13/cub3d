@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 20:01:50 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 16:52:19 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void drawscreen(t_all *all)
 				side = 1;
 			}
 			//Check if ray has hit a wall
-			if(all->map[mapX][mapY] == '1') hit = 1;
+			if(all->map[mapY][mapX] == '1') hit = 1;
 		}
 
 		//Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
@@ -95,7 +95,42 @@ void drawscreen(t_all *all)
 		int drawEnd = lineHeight / 2 + h / 2;
 		if(drawEnd >= h)drawEnd = h - 1;
 
-		draw_line(all, side, drawStart, drawEnd, x);
+		//calculate value of wallX
+		double wallX; //where exactly the wall was hit
+		if (side == 0) wallX = all->plr->posY + perpWallDist * rayDirY;
+		else           wallX = all->plr->posX + perpWallDist * rayDirX;
+		wallX -= floor((wallX));
+
+		//x coordinate on the texture
+		int texX = (int)(wallX * (double)(all->north->tex_width));
+		if(side == 0 && rayDirX > 0) texX = all->north->tex_width - texX - 1;
+		if(side == 1 && rayDirY < 0) texX = all->north->tex_width - texX - 1;
+
+		// How much to increase the texture coordinate per screen pixel
+		double step = 1.0 * all->north->tex_height / lineHeight;
+		// Starting texture coordinate
+		double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
+
+		for(int y = drawStart; y < drawEnd; y++)
+		{
+			// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
+			int texY = (int)texPos & (all->north->tex_height - 1);
+			texPos += step;
+			int color;
+			if (wall_side(side, rayDirX, rayDirY) == texS)
+				color = get_color(all->south, texX, texY);
+			if (wall_side(side, rayDirX, rayDirY) == texN)
+				color = get_color(all->north, texX, texY);
+			if (wall_side(side, rayDirX, rayDirY) == texE)
+				color = get_color(all->east, texX, texY);
+			if (wall_side(side, rayDirX, rayDirY) == texW)
+				color = get_color(all->west, texX, texY);
+			//make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
+			//if(side == 1) color = (color >> 1) & 8355711;
+			my_mlx_pixel_put(all->img, x, y, color);
+		}
+
+		//draw_line(all, side, drawStart, drawEnd, x);
 	}
 	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
 }
@@ -107,6 +142,10 @@ int main()
 	t_data  img;
     t_plr plr;
     t_all all;
+    t_tex north;
+    t_tex south;
+    t_tex west;
+    t_tex east;
 
 
     img.mlx = mlx_init();
@@ -114,16 +153,19 @@ int main()
     img.img = mlx_new_image(img.mlx, w, h);
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
+
+
+
     all.plr = &plr;
     all.img = &img;
+    all.north = &north;
+    all.west = &west;
+    all.south = &south;
+    all.east = &east;
     all.map = read_map(fd);
 	find_player (&all);
-    all.plr->planeY = 0;
-    all.plr->planeX = 0.66;
-   // all.plr->dirY = 0;
-  //  all.plr->dirX = -1;
-  //  all.plr->posY = 10;
-  //  all.plr->posX = 10;
+	tex_open(&all);
+	get_tex_data(&all);
 
 
     //what to draw - start

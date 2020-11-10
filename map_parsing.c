@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 21:22:58 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 15:19:00 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int find_player (t_all *all)
 				all->plr->posY = y;
 				all->plr->dirX = -1;
 				all->plr->dirY = 0;
-				all->plr->planeY = 0.66;
+				all->plr->planeY = -0.66;
 				all->plr->planeX = 0;
 				x++;
 			}
@@ -84,7 +84,7 @@ int find_player (t_all *all)
 				all->plr->dirX = 0;
 				all->plr->dirY = 1;
 				all->plr->planeY = 0;
-				all->plr->planeX = 0.66;
+				all->plr->planeX = -0.66;
 				x++;
 			}
 			if (all->map[y][x] == 'E')

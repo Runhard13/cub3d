@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/08 19:14:03 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/10 17:13:03 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,19 @@ void draw_line (t_all *all, int side, int drawStart, int drawEnd, int x)
 
 }
 
-void big_square(t_all *all)
+void sky_floor(t_all *all)
 {
 	int x = 0;
 	int y = 0;
-	while (y++ < (h-1))
+	while (y++ < (h/2 - 1))
+	{
+		x = 0;
+		while (x++ < (w-1))
+		{
+			my_mlx_pixel_put(all->img, x, y, 0x780b0b);
+		}
+	}
+	while (y++ >= (h/2 - 1) && y < h-1)
 	{
 		x = 0;
 		while (x++ < (w-1))
@@ -44,4 +52,5 @@ void big_square(t_all *all)
 			my_mlx_pixel_put(all->img, x, y, 0x030303);
 		}
 	}
+
 }

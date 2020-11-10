@@ -13,12 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="92d18612-0d59-452a-910a-0aff1f864d48" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/cub3d.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drawing_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/drawing_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks.c" beforeDir="false" afterPath="$PROJECT_DIR$/hooks.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/map_parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.cub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/structure.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,9 +33,9 @@
     <session id="63022141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
-          <entry key="project.open.time.0" value="10" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.closed" value="27" />
+          <entry key="project.open.time.0" value="14" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -42,34 +43,35 @@
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="11" />
-          <entry key="c" value="164" />
-          <entry key="cub" value="32" />
+          <entry key="c" value="177" />
+          <entry key="cub" value="35" />
           <entry key="gitignore" value="3" />
-          <entry key="h" value="30" />
-          <entry key="txt" value="11" />
+          <entry key="h" value="31" />
+          <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="5" />
           <entry key="Makefile" value="11" />
-          <entry key="ObjectiveC" value="194" />
-          <entry key="PLAIN_TEXT" value="41" />
+          <entry key="ObjectiveC" value="208" />
+          <entry key="PLAIN_TEXT" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="305" />
-          <entry key="c" value="8275" />
-          <entry key="cub" value="379" />
+          <entry key="c" value="9878" />
+          <entry key="cub" value="460" />
           <entry key="gitignore" value="23" />
-          <entry key="h" value="768" />
+          <entry key="h" value="1029" />
           <entry key="txt" value="1089" />
         </counts>
       </usages-collector>
@@ -77,8 +79,8 @@
         <counts>
           <entry key="CMakeLists.txt" value="154" />
           <entry key="Makefile" value="305" />
-          <entry key="ObjectiveC" value="9043" />
-          <entry key="PLAIN_TEXT" value="1337" />
+          <entry key="ObjectiveC" value="10907" />
+          <entry key="PLAIN_TEXT" value="1418" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -91,59 +93,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cub3d.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/map_parsing.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/textures.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maps/map.cub">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="120" selection-start-line="120" selection-end-line="121" selection-end-column="27" />
-              <folding>
-                <element signature="e#892#910#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hooks.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+            <state relative-caret-position="180">
+              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -169,7 +123,6 @@
         <option value="$PROJECT_DIR$/parsing.c" />
         <option value="$PROJECT_DIR$/libft/libft.h" />
         <option value="$PROJECT_DIR$/libft/Makefile" />
-        <option value="$PROJECT_DIR$/structure.txt" />
         <option value="$PROJECT_DIR$/rounding.c" />
         <option value="$PROJECT_DIR$/draw_player.c" />
         <option value="$PROJECT_DIR$/pars.c" />
@@ -181,14 +134,15 @@
         <option value="$PROJECT_DIR$/raycasting.c" />
         <option value="$PROJECT_DIR$/old/raycasting.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/drawing_utils.c" />
         <option value="$PROJECT_DIR$/player.c" />
-        <option value="$PROJECT_DIR$/cub3d.h" />
-        <option value="$PROJECT_DIR$/hooks.c" />
-        <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/maps/map.cub" />
+        <option value="$PROJECT_DIR$/structure.txt" />
         <option value="$PROJECT_DIR$/map_parsing.c" />
         <option value="$PROJECT_DIR$/textures.c" />
+        <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/hooks.c" />
+        <option value="$PROJECT_DIR$/cub3d.h" />
+        <option value="$PROJECT_DIR$/drawing_utils.c" />
+        <option value="$PROJECT_DIR$/maps/map.cub" />
       </list>
     </option>
   </component>
@@ -199,8 +153,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="590" />
-    <option name="y" value="23" />
+    <option name="x" value="779" />
+    <option name="y" value="142" />
     <option name="width" value="1781" />
     <option name="height" value="1117" />
   </component>
@@ -218,6 +172,11 @@
             <path>
               <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
               <item name="cub3d" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cub3d" type="462c0819:PsiDirectoryNode" />
+              <item name="maps" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -300,7 +259,13 @@
       <workItem from="1604754377858" duration="6095000" />
       <workItem from="1604770155943" duration="2052000" />
       <workItem from="1604774878600" duration="6736000" />
-      <workItem from="1604848960341" duration="10213000" />
+      <workItem from="1604848960341" duration="10373000" />
+      <workItem from="1604936917578" duration="499000" />
+      <workItem from="1604937419673" duration="2205000" />
+      <workItem from="1604940331339" duration="5853000" />
+      <workItem from="1604996693365" duration="10529000" />
+      <workItem from="1605010716797" duration="4263000" />
+      <workItem from="1605016057768" duration="2023000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1604428154215</created>
@@ -379,11 +344,18 @@
       <option name="project" value="LOCAL" />
       <updated>1604857094293</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="untextured cub3d">
+      <created>1604861660567</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1604861660567</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116358000" />
+    <option name="totallyTimeSpent" value="141890000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,10 +367,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="590" y="23" width="1781" height="1117" extended-state="0" />
+    <frame x="779" y="142" width="1781" height="1117" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17768833" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18803911" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -501,17 +473,6 @@
     <MESSAGE value="untextured cub3d" />
     <option name="LAST_COMMIT_MESSAGE" value="untextured cub3d" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.c</url>
-          <line>120</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
@@ -549,13 +510,6 @@
     <entry file="file://$PROJECT_DIR$/map_draw.c" />
     <entry file="file://$PROJECT_DIR$/parse_map.c" />
     <entry file="file://$PROJECT_DIR$/parsing.c" />
-    <entry file="file://$PROJECT_DIR$/libft/ft_split.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_bzero.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -613,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/structure.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="78" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/old/rounding.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -638,9 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
           <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
-          <folding>
-            <element signature="e#892#910#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -679,20 +623,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/player.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="15" selection-end-line="37" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drawing_utils.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/player.c" />
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -700,48 +631,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_split.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/map_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/textures.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hooks.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+        <state relative-caret-position="561">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cub3d.h">
+    <entry file="file://$PROJECT_DIR$/structure.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maps/map.cub">
+    <entry file="file://$PROJECT_DIR$/drawing_utils.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="166">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="33" selection-end-line="34" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="120" selection-start-line="120" selection-end-line="121" selection-end-column="27" />
+        <state relative-caret-position="473">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
           <folding>
             <element signature="e#892#910#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map_parsing.c">
+    <entry file="file://$PROJECT_DIR$/cub3d.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+        <state relative-caret-position="451">
+          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/textures.c">
+    <entry file="file://$PROJECT_DIR$/maps/map.cub">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
