@@ -113,5 +113,6 @@ int wall_side (int side, double rayDirX, double rayDirY);
 void sky_floor(t_all *all);
 void sprites_open (t_all *all);
 void	sortSprites(int *order, double *distance, int number);
+void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *ZBuffer);
 
 #endif //CUB3D_CUB3D_H

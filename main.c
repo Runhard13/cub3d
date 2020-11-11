@@ -131,11 +131,17 @@ void drawscreen(t_all *all)
 			//if(side == 1) color = (color >> 1) & 8355711;
 			my_mlx_pixel_put(all->img, x, y, color);
 		}
-
 		//draw_line(all, side, drawStart, drawEnd, x);
 		//SET THE ZBUFFER FOR THE SPRITE CASTING
 		ZBuffer[x] = perpWallDist; //perpendicular distance is used
 	}
+	draw_sprite(all, spriteOrder, spriteDistance, ZBuffer);
+	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
+}
+
+void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *ZBuffer)
+{
+
 	//SPRITE CASTING
 	//sort sprites from far to close
 	for (int i = 0; i < all->item->sprite_count; i++)
@@ -169,7 +175,8 @@ void drawscreen(t_all *all)
 		int spriteScreenX = (int) ((w / 2) * (1 + transformX / transformY));
 
 		//calculate height of the sprite on screen
-		int spriteHeight = abs((int) (h / (transformY))); //using 'transformY' instead of the real distance prevents fisheye
+		int spriteHeight = abs(
+				(int) (h / (transformY))); //using 'transformY' instead of the real distance prevents fisheye
 		//calculate lowest and highest pixel to fill in current stripe
 		int drawStartY = -spriteHeight / 2 + h / 2;
 		if (drawStartY < 0) drawStartY = 0;
@@ -186,7 +193,8 @@ void drawscreen(t_all *all)
 		//loop through every vertical stripe of the sprite on screen
 		for (int stripe = drawStartX; stripe < drawEndX; stripe++)
 		{
-			int texX = (256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * all->sprite->tex_width / spriteWidth) / 256;
+			int texX =
+					(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * all->sprite->tex_width / spriteWidth) / 256;
 			//the conditions in the if are:
 			//1) it's in front of camera plane so you don't see things behind you
 			//2) it's on the screen (left)
@@ -199,15 +207,16 @@ void drawscreen(t_all *all)
 					int texY = ((d * all->sprite->tex_height) / spriteHeight) / 256;
 					int color = get_color(all->sprite, texX, texY); //get current color from the texture
 					if ((color & 0x00FFFFFF) != 0)
-						my_mlx_pixel_put(all->img, stripe, y, color); //paint pixel if it isn't black, black is the invisible color
+						my_mlx_pixel_put(all->img, stripe, y,
+										 color); //paint pixel if it isn't black, black is the invisible color
 				}
-			mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
 		}
 	}
 }
 
 int main()
 {
+
 
 	int fd = open("./maps/map.cub", O_RDONLY);
 	t_data  img;
