@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 17:13:03 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 13:32:17 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ void sky_floor(t_all *all)
 {
 	int x = 0;
 	int y = 0;
-	while (y++ < (h/2 - 1))
+	while (y++ < (all->h/2 - 1))
 	{
 		x = 0;
-		while (x++ < (w-1))
+		while (x++ < (all->w-1))
 		{
-			my_mlx_pixel_put(all->img, x, y, 0x780b0b);
+			my_mlx_pixel_put(all->img, x, y, all->sky_color);
 		}
 	}
-	while (y++ >= (h/2 - 1) && y < h-1)
+	while (y++ >= (all->h/2 - 1) && y < all->h-1)
 	{
 		x = 0;
-		while (x++ < (w-1))
+		while (x++ < (all->w-1))
 		{
-			my_mlx_pixel_put(all->img, x, y, 0x030303);
+			my_mlx_pixel_put(all->img, x, y, all->floor_color);
 		}
 	}
 

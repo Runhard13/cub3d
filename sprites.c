@@ -15,7 +15,6 @@
 
 void sprites_open (t_all *all)
 {
-	all->sprite->path = "./pics/AnyConv.com__barrel.xpm";
 	all->sprite->tex_img = mlx_xpm_file_to_image(all->img->mlx, all->sprite->path, &all->sprite->tex_width, &all->sprite->tex_height);
 }
 

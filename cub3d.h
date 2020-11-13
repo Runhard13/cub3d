@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/11 20:06:47 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:52:07 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@
 #define E 14
 #define  moveSpeed 0.5
 #define rotSpeed 0.1
-#define w 1920
-#define h 1080
 #define texS 1
 #define texN 2
 #define	texW 3
@@ -91,7 +89,11 @@ typedef struct	s_all // все вместе
 	t_tex		*west;
 	t_tex		*sprite;
 	t_spr		*item;
-	double 		*ZBuffer;
+	int 		w;
+	int 		h;
+	int 		floor_color;
+	int 		sky_color;
+
 }				  t_all;
 
 
@@ -100,7 +102,7 @@ int		key_press(int keycode, t_all *all);
 char	**make_map(t_list **head, size_t size);
 char	**read_map (int fd);
 void	drawscreen(t_all *all);
-void parse_player_and_sprite (t_all *all);
+void parse_player (t_all *all);
 void	tex_open (t_all *all);
 void	get_tex_data (t_all *all);
 int 	get_color (t_tex *tex, int x, int y);
@@ -109,5 +111,13 @@ void 	sky_floor(t_all *all);
 void 	sprites_open (t_all *all);
 void	sortSprites(int *order, double *distance, int number);
 void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *ZBuffer);
+void parse_resolution (t_all *all);
+char *line_allocation (char *map);
+void parse_path (t_all *all);
+void parse_color (t_all *all);
+int	cub_atoi(const char *str);
+void parse_sprite (t_all *all);
+int	get_intlen(int n);
+int		create_trgb(int t, int r, int g, int b);
 
 #endif //CUB3D_CUB3D_H

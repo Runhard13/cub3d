@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 21:42:28 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 16:49:21 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:00:48 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ int wall_side (int side, double rayDirX, double rayDirY)
 
 void tex_open (t_all *all)
 {
-
-	all->north->path = "./pics/AnyConv.com__redbrick.xpm";
-	all->south->path = "./pics/AnyConv.com__bluestone.xpm";
-	all->east->path = "./pics/AnyConv.com__greystone.xpm";
-	all->west->path = "./pics/AnyConv.com__wood.xpm";
 
 	all->north->tex_img = mlx_xpm_file_to_image(all->img->mlx, all->north->path, &all->north->tex_width, &all->north->tex_height);
 	all->south->tex_img = mlx_xpm_file_to_image(all->img->mlx, all->south->path, &all->south->tex_width, &all->south->tex_height);

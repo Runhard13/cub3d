@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/11 20:14:04 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:39:14 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 void drawscreen(t_all *all)
 {
 	int x = 0;
-	double ZBuffer[w];
+	double ZBuffer[all->w];
 	//arrays used to sort the sprites
 	int spriteOrder[all->item->sprite_count];
 	double spriteDistance[all->item->sprite_count];
 
-	while (x++ < w)
+	while (x++ < all->w)
 	{
-		double cameraX = 2 * x / (double) w - 1; //x-coordinate in camera space
+		double cameraX = 2 * x / (double) all->w - 1; //x-coordinate in camera space
 		double rayDirX = all->plr->dirX + all->plr->planeX * cameraX;
 		double rayDirY = all->plr->dirY + all->plr->planeY * cameraX;
 		//which box of the map we're in
@@ -89,13 +89,13 @@ void drawscreen(t_all *all)
 		else perpWallDist = (mapY - all->plr->posY + (1 - stepY) / 2.0) / rayDirY;
 
 		//Calculate height of line to draw on screen
-		int lineHeight = (int) (h / perpWallDist);
+		int lineHeight = (int) (all->h / perpWallDist);
 
 		//calculate lowest and highest pixel to fill in current stripe
-		int drawStart = -lineHeight / 2 + h / 2;
+		int drawStart = -lineHeight / 2 + all->h / 2;
 		if (drawStart < 0)drawStart = 0;
-		int drawEnd = lineHeight / 2 + h / 2;
-		if (drawEnd >= h)drawEnd = h - 1;
+		int drawEnd = lineHeight / 2 + all->h / 2;
+		if (drawEnd >= all->h)drawEnd = all->h - 1;
 
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
@@ -111,7 +111,7 @@ void drawscreen(t_all *all)
 		// How much to increase the texture coordinate per screen pixel
 		double step = 1.0 * all->north->tex_height / lineHeight;
 		// Starting texture coordinate
-		double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
+		double texPos = (drawStart - all->h / 2 + lineHeight / 2) * step;
 
 		for (int y = drawStart; y < drawEnd; y++)
 		{
@@ -172,23 +172,23 @@ void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *Z
 		double transformY = invDet * (-all->plr->planeY * spriteX + all->plr->planeX *
 																	spriteY); //this is actually the depth inside the screen, that what Z is in 3D
 
-		int spriteScreenX = (int) ((w / 2) * (1 + transformX / transformY));
+		int spriteScreenX = (int)((all->w / 2) * (1 + transformX / transformY));
 
 		//calculate height of the sprite on screen
 		int spriteHeight = abs(
-				(int) (h / (transformY))); //using 'transformY' instead of the real distance prevents fisheye
+				(int) (all->h / (transformY))); //using 'transformY' instead of the real distance prevents fisheye
 		//calculate lowest and highest pixel to fill in current stripe
-		int drawStartY = -spriteHeight / 2 + h / 2;
+		int drawStartY = -spriteHeight / 2 + all->h / 2;
 		if (drawStartY < 0) drawStartY = 0;
-		int drawEndY = spriteHeight / 2 + h / 2;
-		if (drawEndY >= h) drawEndY = h - 1;
+		int drawEndY = spriteHeight / 2 + all->h / 2;
+		if (drawEndY >= all->h) drawEndY = all->h - 1;
 
 		//calculate width of the sprite
-		int spriteWidth = abs((int) (h / (transformY)));
+		int spriteWidth = abs((int) (all->h / (transformY)));
 		int drawStartX = -spriteWidth / 2 + spriteScreenX;
 		if (drawStartX < 0) drawStartX = 0;
 		int drawEndX = spriteWidth / 2 + spriteScreenX;
-		if (drawEndX >= w) drawEndX = w - 1;
+		if (drawEndX >= all->w) drawEndX = all->w - 1;
 
 		//loop through every vertical stripe of the sprite on screen
 		for (int stripe = drawStartX; stripe < drawEndX; stripe++)
@@ -200,10 +200,10 @@ void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *Z
 			//2) it's on the screen (left)
 			//3) it's on the screen (right)
 			//4) ZBuffer, with perpendicular distance
-			if (transformY > 0 && stripe > 0 && stripe < w && transformY < ZBuffer[stripe])
+			if (transformY > 0 && stripe > 0 && stripe < all->w && transformY < ZBuffer[stripe])
 				for (int y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
 				{
-					int d = (y) * 256 - h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
+					int d = (y) * 256 - all->h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
 					int texY = ((d * all->sprite->tex_height) / spriteHeight) / 256;
 					int color = get_color(all->sprite, texX, texY); //get current color from the texture
 					if ((color & 0x00FFFFFF) != 0)
@@ -229,29 +229,35 @@ int main()
     t_tex sprite;
     t_spr item;
 
+	img.mlx = mlx_init();
 
-    img.mlx = mlx_init();
-    img.mlx_win = mlx_new_window(img.mlx, w, h, "cub");
-    img.img = mlx_new_image(img.mlx, w, h);
+    all.plr = &plr;
+	all.img = &img;
+	all.north = &north;
+	all.west = &west;
+	all.south = &south;
+	all.east = &east;
+	all.sprite = &sprite;
+	all.item = &item;
+	all.map = read_map(fd);
+
+	parse_player(&all);
+	parse_sprite (&all);
+	parse_resolution (&all);
+	parse_path (&all);
+	parse_color (&all);
+	tex_open(&all);
+	sprites_open (&all);
+	get_tex_data(&all);
+
+    img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub");
+    img.img = mlx_new_image(img.mlx, all.w, all.h);
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
 
 
 
-    all.plr = &plr;
-    all.img = &img;
-    all.north = &north;
-    all.west = &west;
-    all.south = &south;
-    all.east = &east;
-    all.sprite = &sprite;
-    all.item = &item;
-    all.map = read_map(fd);
 
-	parse_player_and_sprite(&all);
-	tex_open(&all);
-	sprites_open (&all);
-	get_tex_data(&all);
 
 
     //what to draw - start

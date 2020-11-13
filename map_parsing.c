@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/11 21:06:59 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:50:03 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,68 +48,18 @@ char **read_map (int fd)
 	return (make_map(&head, amount));
 }
 
-void parse_player_and_sprite (t_all *all)
+char *line_allocation (char *map)
 {
-	int x = 0;
-	int y = 0;
-
-	while (all->map[y])
+	char *line;
+	int len = 0;
+	int i = 0;
+	len = (int)ft_strlen(map);
+	line = malloc(sizeof(char *) * (len + 1));
+	while(map[i])
 	{
-		x = 0;
-		while (all->map[y][x])
-		{
-			if (all->map[y][x] == 'N')
-			{
-				all->plr->posX = x + 0.5;
-				all->plr->posY = y + 0.5;
-				all->plr->dirX = 0;
-				all->plr->dirY = -1;
-				all->plr->planeY = 0;
-				all->plr->planeX = 0.66;
-				x++;
-			}
-			if (all->map[y][x] == 'W')
-			{
-				all->plr->posX = x + 0.5;
-				all->plr->posY = y + 0.5;
-				all->plr->dirX = -1;
-				all->plr->dirY = 0;
-				all->plr->planeY = -0.66;
-				all->plr->planeX = 0;
-				x++;
-			}
-			if (all->map[y][x] == 'S')
-			{
-				all->plr->posX = x + 0.5;
-				all->plr->posY = y + 0.5;
-				all->plr->dirX = 0;
-				all->plr->dirY = 1;
-				all->plr->planeY = 0;
-				all->plr->planeX = -0.66;
-				x++;
-			}
-			if (all->map[y][x] == 'E')
-			{
-				all->plr->posX = x + 0.5;
-				all->plr->posY = y + 0.5;
-				all->plr->dirX = 1;
-				all->plr->dirY = 0;
-				all->plr->planeY = 0.66;
-				all->plr->planeX = 0;
-				x++;
-			}
-			if (all->map[y][x] == '2')
-			{
-				all->item->x = x;
-				all->item->y = y;
-				all->item->sprite_count++;
-				x++;
-			}
-			else
-				x++;
-		}
-
-		y++;
+		line[i] = map[i];
+		i++;
 	}
+	line[i] = '\0';
+	return (line);
 }
-
