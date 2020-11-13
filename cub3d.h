@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 16:43:55 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:56:12 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct	s_data
 	void		*mlx_win;
 	void		*img;
 	char		*addr;
-	int			bits_per_pixel;
+	int			bpp;
 	int			line_length;
 	int			endian;
 }				t_data;
@@ -61,7 +61,7 @@ typedef struct	s_tex
 {
 	void		*tex_img;
 	char		*addr;
-	int			bits_per_pixel;
+	int			bpp;
 	int			line_length;
 	int			endian;
 	char		*path;
@@ -110,7 +110,6 @@ void			draw_sprite(t_all *all, int *spr_ord,
 				double *spr_dist, double *z_buf);
 void			parse_resolution (t_all *all);
 char			*line_allocation (char *map);
-void			parse_path (t_all *all);
 void			parse_color_floor (t_all *all);
 void			parse_color_sky (t_all *all);
 int				cub_atoi(const char *str);
@@ -123,5 +122,12 @@ void			rot_right (t_all *all);
 void			rot_left (t_all *all);
 void			strafe_left(t_all *all);
 void			strafe_right(t_all *all);
+void			parse_path_tex(t_all *all);
+void			parse_path_sprite(t_all *all);
+void			player_north(t_all *all, int x, int y);
+void			player_south(t_all *all, int x, int y);
+void			player_west(t_all *all, int x, int y);
+void			player_east(t_all *all, int x, int y);
+void			game_init (t_all *all);
 
 #endif

@@ -6,15 +6,17 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 13:05:40 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 14:47:54 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:46:59 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_intlen(int n)
+int		get_intlen(int n)
 {
-	int len = 1;
+	int len;
+
+	len = 1;
 	if (n == -2147483648)
 		return (10);
 	if (n <= 0)
@@ -27,7 +29,7 @@ int	get_intlen(int n)
 	return (len);
 }
 
-int	cub_atoi(const char *str)
+int		cub_atoi(const char *str)
 {
 	size_t	result;
 	int		i;
@@ -44,11 +46,12 @@ int	cub_atoi(const char *str)
 	return (result);
 }
 
-void parse_resolution (t_all *all)
+void	parse_resolution(t_all *all)
 {
-	int y = 0;
-	char *line = 0;
+	int		y;
+	char	*line;
 
+	y = 0;
 	while (all->map[y])
 	{
 		if (all->map[y][0] == 'R')
@@ -62,7 +65,7 @@ void parse_resolution (t_all *all)
 			all->h = cub_atoi(line);
 			all->w = (all->w > 1920 ? 1920 : all->w);
 			all->h = (all->h > 1080 ? 1080 : all->h);
-			break;
+			break ;
 		}
 		y++;
 	}

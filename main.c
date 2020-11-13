@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 16:39:03 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 19:09:26 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 void drawscreen(t_all *all)
 {
-	int x = 0;
+	int x;
 	double z_buf[all->w];
 	//arrays used to sort the sprites
 	int spr_ord[all->item->sprite_count];
 	double spr_dist[all->item->sprite_count];
 
+	x = 0;
 	while (x++ < all->w)
 	{
 		double cameraX = 2 * x / (double) all->w - 1; //x-coordinate in camera space
@@ -216,8 +217,6 @@ void draw_sprite(t_all *all, int *spr_ord, double *spr_dist, double *z_buf)
 
 int main()
 {
-
-
 	int fd = open("./maps/map.cub", O_RDONLY);
 	t_data  img;
     t_plr plr;
@@ -231,7 +230,8 @@ int main()
 
 	img.mlx = mlx_init();
 
-    all.plr = &plr;
+    all.map = read_map(fd);
+	all.plr = &plr;
 	all.img = &img;
 	all.north = &north;
 	all.west = &west;
@@ -239,33 +239,18 @@ int main()
 	all.east = &east;
 	all.sprite = &sprite;
 	all.item = &item;
-	all.map = read_map(fd);
 
-	parse_player(&all);
-	parse_sprite (&all);
-	parse_resolution (&all);
-	parse_path (&all);
-	parse_color_floor(&all);
-	parse_color_sky(&all);
-	tex_open(&all);
-	sprites_open (&all);
-	get_tex_data(&all);
+    game_init(&all);
+
 
     img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub");
     img.img = mlx_new_image(img.mlx, all.w, all.h);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+    img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length,
                                  &img.endian);
-
-
-
-
-
-
-    //what to draw - start
 
 	sky_floor(&all);
     drawscreen(&all);
-    // what to draw - end
+
     mlx_hook(img.mlx_win, 2, (1L << 0), &key_press, &all);
     mlx_loop(img.mlx);
 }

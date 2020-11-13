@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_parsing.c                                   :+:      :+:    :+:   */
+/*   game_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 15:28:11 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 17:31:20 by cdrennan         ###   ########.fr       */
+/*   Created: 2020/11/13 18:59:55 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 18:59:55 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	parse_sprite(t_all *all)
+void game_init (t_all *all)
 {
-	int x;
-	int y;
-
-	x = 0;
-	y = 0;
-	while (all->map[y])
-	{
-		if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
-			all->map[y][0] == ' '))
-		{
-			all->item->x = x;
-			all->item->y = y;
-			all->item->sprite_count++;
-			x++;
-		}
-		else
-			x++;
-		y++;
-	}
+	parse_player(all);
+	parse_sprite (all);
+	parse_resolution (all);
+	parse_path_tex(all);
+	parse_path_sprite(all);
+	parse_color_floor(all);
+	parse_color_sky(all);
+	tex_open(all);
+	sprites_open (all);
+	get_tex_data(all);
 }

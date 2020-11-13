@@ -6,18 +6,18 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:36:29 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 15:04:12 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:52:24 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
 
-void sprites_open (t_all *all)
+void	sprites_open(t_all *all)
 {
-	all->sprite->tex_img = mlx_xpm_file_to_image(all->img->mlx, all->sprite->path, &all->sprite->tex_width, &all->sprite->tex_height);
+	all->sprite->tex_img =
+			mlx_xpm_file_to_image(all->img->mlx, all->sprite->path,
+					&all->sprite->tex_width, &all->sprite->tex_height);
 }
-
 
 void	ft_swap(int *a, int *b)
 {
