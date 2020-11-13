@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 18:56:12 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 00:56:14 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define Q 12
 # define E 14
 # define SPEED 0.5
-# define ROT 0.1
+# define ROT 0.2
 # define TEX_S 1
 # define TEX_N 2
 # define TEX_W 3
@@ -57,6 +57,25 @@ typedef struct	s_plr
 	double		planey;
 }				t_plr;
 
+typedef struct	s_cast
+{
+	int 		side;
+	double 		raydirx;
+	double 		raydiry;
+	double 		perp_wall_dist;
+	double 		line_h;
+	int			step_x;
+	int 		step_y;
+	double 		side_x;
+	double 		side_y;
+	double 		delta_x;
+	double 		delta_y;
+	int 		map_y;
+	int 		map_x;
+
+}				t_cast;
+
+
 typedef struct	s_tex
 {
 	void		*tex_img;
@@ -67,13 +86,29 @@ typedef struct	s_tex
 	char		*path;
 	int			tex_width;
 	int			tex_height;
+
 }				t_tex;
+
+typedef struct	s_texture
+{
+	double		step;
+	double 		wall_x;
+	int 		tex_x;
+	int 		tex_y;
+	double 		tex_pos;
+	int 		color;
+
+}				t_texture;
 
 typedef struct	s_spr
 {
 	int			x;
 	int			y;
 	int			sprite_count;
+	double		sprite_x;
+	double 		sprite_y;
+	int 		*spr_ord;
+	double 		*spr_dist;
 }				t_spr;
 
 typedef struct	s_all
@@ -91,6 +126,9 @@ typedef struct	s_all
 	int			h;
 	int			floor_color;
 	int			sky_color;
+	t_cast		*cast;
+	t_texture	*tex;
+	double 		*zbuffer;
 }				t_all;
 
 void			my_mlx_pixel_put (t_data *data, int x, int y, int color);
@@ -102,12 +140,11 @@ void			parse_player (t_all *all);
 void			tex_open (t_all *all);
 void			get_tex_data (t_all *all);
 int				get_color (t_tex *tex, int x, int y);
-int				wall_side (int side, double raydirx, double raydiry);
+int				wall_side (t_all *all);
 void			sky_floor (t_all *all);
 void			sprites_open (t_all *all);
-void			spr_sort(int *order, double *distance, int number);
-void			draw_sprite(t_all *all, int *spr_ord,
-				double *spr_dist, double *z_buf);
+void			spr_sort(int *spr_ord, double *spr_dist, int number);
+void 			draw_sprite(t_all *all, int *spr_ord, double *spr_dist);
 void			parse_resolution (t_all *all);
 char			*line_allocation (char *map);
 void			parse_color_floor (t_all *all);
@@ -129,5 +166,9 @@ void			player_south(t_all *all, int x, int y);
 void			player_west(t_all *all, int x, int y);
 void			player_east(t_all *all, int x, int y);
 void			game_init (t_all *all);
+void			tex_draw(t_all *all, int x, int drawStart, int drawEnd);
+void			rays_calc(t_all *all, int x);
+void 			preform_dda(t_all *all);
+void			step_calc(t_all *all);
 
 #endif

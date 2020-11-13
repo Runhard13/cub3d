@@ -21,16 +21,20 @@ void	parse_sprite(t_all *all)
 	y = 0;
 	while (all->map[y])
 	{
-		if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
-			all->map[y][0] == ' '))
+		x = 0;
+		while (all->map[y][x])
 		{
-			all->item->x = x;
-			all->item->y = y;
-			all->item->sprite_count++;
-			x++;
+			if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
+										  all->map[y][0] == ' '))
+			{
+				all->item->x = x;
+				all->item->y = y;
+				all->item->sprite_count++;
+				x++;
+			}
+			else
+				x++;
 		}
-		else
-			x++;
 		y++;
 	}
 }

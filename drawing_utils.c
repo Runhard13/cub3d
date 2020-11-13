@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 16:12:21 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 00:42:21 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,37 @@ void	sky_floor(t_all *all)
 			my_mlx_pixel_put(all->img, x, y, all->floor_color);
 		}
 	}
+}
+
+void	drawscreen(t_all *all)
+{
+	int		x;
+	int		draw_start;
+	int		draw_end;
+
+
+	all->item->spr_dist = malloc(sizeof(double) * all->item->sprite_count);
+	all->item->spr_ord = malloc(sizeof(int) * all->item->sprite_count);
+	x = 0;
+	while (x++ < all->w)
+	{
+		rays_calc(all, x);
+		step_calc(all);
+		preform_dda (all);
+		if (all->cast->side == 0)
+			all->cast->perp_wall_dist = (all->cast->map_x - all->plr->posx + (1 - all->cast->step_x) / 2.0) / all->cast->raydirx;
+		else
+			all->cast->perp_wall_dist = (all->cast->map_y - all->plr->posy + (1 - all->cast->step_y) / 2.0) / all->cast->raydiry;
+		all->cast->line_h = (int)(all->h / all->cast->perp_wall_dist);
+		draw_start = -all->cast->line_h / 2 + all->h / 2;
+		if (draw_start < 0)
+			draw_start = 0;
+		draw_end = all->cast->line_h / 2 + all->h / 2;
+		if (draw_end >= all->h)
+			draw_end = all->h - 1;
+		tex_draw(all, x, draw_start, draw_end);
+		all->zbuffer[x] = all->cast->perp_wall_dist;
+	}
+	draw_sprite(all, all->item->spr_ord, all->item->spr_dist);
+	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
 }

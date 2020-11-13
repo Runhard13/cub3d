@@ -6,17 +6,17 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 21:42:28 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 18:56:38 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 19:30:18 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		wall_side(int side, double raydirx, double raydiry)
+int		wall_side(t_all *all)
 {
-	if (side)
-		return ((raydiry < 0) ? (TEX_N) : (TEX_S));
-	return ((raydirx < 0) ? (TEX_W) : (TEX_E));
+	if (all->cast->side)
+		return ((all->cast->raydiry < 0) ? (TEX_N) : (TEX_S));
+	return ((all->cast->raydirx < 0) ? (TEX_W) : (TEX_E));
 }
 
 void	tex_open(t_all *all)

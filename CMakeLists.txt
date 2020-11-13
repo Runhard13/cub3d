@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(cub3d C)
 
 set(CMAKE_C_STANDARD 99)
-set(SOURCE_EXE  main.c hooks.c drawing_utils.c map_parsing.c textures.c sprite_utils.c player_movement.c resolution_parsing.c path_parsing.c player_parsing.c color_parsing.c sprite_parsing.c player_direction_init.c game_init.c)
+set(SOURCE_EXE  main.c hooks.c drawing_utils.c map_parsing.c tex_utils.c sprite_utils.c player_movement.c resolution_parsing.c path_parsing.c player_parsing.c color_parsing.c sprite_parsing.c player_direction_init.c game_init.c tex_drawing.c sprite_drawing.c rays.c)
 
 
 

@@ -286,7 +286,7 @@ public class MlxWin
 /// winEvent calls
   public func getWinEFrame() -> NSRect  { return winE.frame }
   public func getScreenFrame() -> NSRect { return winE.screen!.frame }
-  public func getMouseLoc() -> NSPoint { return winE.mouseLocationOutsideOfEventStream }
+  public func getMouseLoc() -> NSPoint { return winE.mouseLocationOutall->cast->sideOfEventStream }
   public func addHook(index idx:Int, fct fptr:UnsafeMutableRawPointer, param pptr:UnsafeMutableRawPointer)
   {  winE.addHook(index: idx, fct: fptr, param: pptr)  }
   public func setKeyRepeat(_ mode:Int)  { winE.setKeyRepeat(mode) }
