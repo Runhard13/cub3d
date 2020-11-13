@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 15:39:14 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 16:39:03 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 void drawscreen(t_all *all)
 {
 	int x = 0;
-	double ZBuffer[all->w];
+	double z_buf[all->w];
 	//arrays used to sort the sprites
-	int spriteOrder[all->item->sprite_count];
-	double spriteDistance[all->item->sprite_count];
+	int spr_ord[all->item->sprite_count];
+	double spr_dist[all->item->sprite_count];
 
 	while (x++ < all->w)
 	{
 		double cameraX = 2 * x / (double) all->w - 1; //x-coordinate in camera space
-		double rayDirX = all->plr->dirX + all->plr->planeX * cameraX;
-		double rayDirY = all->plr->dirY + all->plr->planeY * cameraX;
+		double raydirx = all->plr->dirx + all->plr->planex * cameraX;
+		double raydiry = all->plr->diry + all->plr->planey * cameraX;
 		//which box of the map we're in
-		int mapX = (int) (all->plr->posX);
-		int mapY = (int) (all->plr->posY);
+		int mapX = (int) (all->plr->posx);
+		int mapY = (int) (all->plr->posy);
 
 		//length of ray from current position to next x or y-side
 		double sideDistX;
 		double sideDistY;
 
 		//length of ray from one x or y-side to next x or y-side
-		double deltaDistX = fabs(1 / rayDirX);
-		double deltaDistY = fabs(1 / rayDirY);
+		double deltaDistX = fabs(1 / raydirx);
+		double deltaDistY = fabs(1 / raydiry);
 		double perpWallDist;
 
 		//what direction to step in x or y-direction (either +1 or -1)
@@ -46,23 +46,23 @@ void drawscreen(t_all *all)
 		int hit = 0; //was there a wall hit?
 		int side; //was a NS or a EW wall hit?
 		//calculate step and initial sideDist
-		if (rayDirX < 0)
+		if (raydirx < 0)
 		{
 			stepX = -1;
-			sideDistX = (all->plr->posX - mapX) * deltaDistX;
+			sideDistX = (all->plr->posx - mapX) * deltaDistX;
 		} else
 		{
 			stepX = 1;
-			sideDistX = (mapX + 1.0 - all->plr->posX) * deltaDistX;
+			sideDistX = (mapX + 1.0 - all->plr->posx) * deltaDistX;
 		}
-		if (rayDirY < 0)
+		if (raydiry < 0)
 		{
 			stepY = -1;
-			sideDistY = (all->plr->posY - mapY) * deltaDistY;
+			sideDistY = (all->plr->posy - mapY) * deltaDistY;
 		} else
 		{
 			stepY = 1;
-			sideDistY = (mapY + 1.0 - all->plr->posY) * deltaDistY;
+			sideDistY = (mapY + 1.0 - all->plr->posy) * deltaDistY;
 		}
 
 		//perform DDA
@@ -85,8 +85,8 @@ void drawscreen(t_all *all)
 		}
 
 		//Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
-		if (side == 0) perpWallDist = (mapX - all->plr->posX + (1 - stepX) / 2.0) / rayDirX;
-		else perpWallDist = (mapY - all->plr->posY + (1 - stepY) / 2.0) / rayDirY;
+		if (side == 0) perpWallDist = (mapX - all->plr->posx + (1 - stepX) / 2.0) / raydirx;
+		else perpWallDist = (mapY - all->plr->posy + (1 - stepY) / 2.0) / raydiry;
 
 		//Calculate height of line to draw on screen
 		int lineHeight = (int) (all->h / perpWallDist);
@@ -99,14 +99,14 @@ void drawscreen(t_all *all)
 
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
-		if (side == 0) wallX = all->plr->posY + perpWallDist * rayDirY;
-		else wallX = all->plr->posX + perpWallDist * rayDirX;
+		if (side == 0) wallX = all->plr->posy + perpWallDist * raydiry;
+		else wallX = all->plr->posx + perpWallDist * raydirx;
 		wallX -= floor((wallX));
 
 		//x coordinate on the texture
 		int texX = (int) (wallX * (double) (all->north->tex_width));
-		if (side == 0 && rayDirX > 0) texX = all->north->tex_width - texX - 1;
-		if (side == 1 && rayDirY < 0) texX = all->north->tex_width - texX - 1;
+		if (side == 0 && raydirx > 0) texX = all->north->tex_width - texX - 1;
+		if (side == 1 && raydiry < 0) texX = all->north->tex_width - texX - 1;
 
 		// How much to increase the texture coordinate per screen pixel
 		double step = 1.0 * all->north->tex_height / lineHeight;
@@ -119,57 +119,57 @@ void drawscreen(t_all *all)
 			int texY = (int) texPos & (all->north->tex_height - 1);
 			texPos += step;
 			int color;
-			if (wall_side(side, rayDirX, rayDirY) == texS)
+			if (wall_side(side, raydirx, raydiry) == TEX_S)
 				color = get_color(all->south, texX, texY);
-			if (wall_side(side, rayDirX, rayDirY) == texN)
+			if (wall_side(side, raydirx, raydiry) == TEX_N)
 				color = get_color(all->north, texX, texY);
-			if (wall_side(side, rayDirX, rayDirY) == texE)
+			if (wall_side(side, raydirx, raydiry) == TEX_E)
 				color = get_color(all->east, texX, texY);
-			if (wall_side(side, rayDirX, rayDirY) == texW)
+			if (wall_side(side, raydirx, raydiry) == TEX_W)
 				color = get_color(all->west, texX, texY);
 			//make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
 			//if(side == 1) color = (color >> 1) & 8355711;
 			my_mlx_pixel_put(all->img, x, y, color);
 		}
 		//draw_line(all, side, drawStart, drawEnd, x);
-		//SET THE ZBUFFER FOR THE SPRITE CASTING
-		ZBuffer[x] = perpWallDist; //perpendicular distance is used
+		//SET THE z_buf FOR THE SPRITE CASTING
+		z_buf[x] = perpWallDist; //perpendicular distance is used
 	}
-	draw_sprite(all, spriteOrder, spriteDistance, ZBuffer);
+	draw_sprite(all, spr_ord, spr_dist, z_buf);
 	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
 }
 
-void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *ZBuffer)
+void draw_sprite(t_all *all, int *spr_ord, double *spr_dist, double *z_buf)
 {
 
 	//SPRITE CASTING
 	//sort sprites from far to close
 	for (int i = 0; i < all->item->sprite_count; i++)
 	{
-		spriteOrder[i] = i;
-		spriteDistance[i] = ((all->plr->posX - all->item[i].x) * (all->plr->posX - all->item[i].x) +
-							 (all->plr->posY - all->item[i].x) *
-							 (all->plr->posY - all->item[i].x)); //sqrt not taken, unneeded
+		spr_ord[i] = i;
+		spr_dist[i] = ((all->plr->posx - all->item[i].x) * (all->plr->posx - all->item[i].x) +
+							 (all->plr->posy - all->item[i].x) *
+							 (all->plr->posy - all->item[i].x)); //sqrt not taken, unneeded
 	}
-	sortSprites(spriteOrder, spriteDistance, all->item->sprite_count);
+	spr_sort(spr_ord, spr_dist, all->item->sprite_count);
 
 	//after sorting the sprites, do the projection and draw them
 	for (int i = 0; i < all->item->sprite_count; i++)
 	{
 		//translate sprite position to relative to camera
-		double spriteX = all->item[spriteOrder[i]].x - all->plr->posX;
-		double spriteY = all->item[spriteOrder[i]].y - all->plr->posY;
+		double spriteX = all->item[spr_ord[i]].x - all->plr->posx;
+		double spriteY = all->item[spr_ord[i]].y - all->plr->posy;
 
 		//transform sprite with the inverse camera matrix
-		// [ planeX   dirX ] -1                                       [ dirY      -dirX ]
-		// [               ]       =  1/(planeX*dirY-dirX*planeY) *   [                 ]
-		// [ planeY   dirY ]                                          [ -planeY  planeX ]
+		// [ planex   dirx ] -1                                       [ diry      -dirx ]
+		// [               ]       =  1/(planex*diry-dirx*planey) *   [                 ]
+		// [ planey   diry ]                                          [ -planey  planex ]
 
-		double invDet = 1.0 / (all->plr->planeX * all->plr->dirY -
-							   all->plr->dirX * all->plr->planeY); //required for correct matrix multiplication
+		double invDet = 1.0 / (all->plr->planex * all->plr->diry -
+							   all->plr->dirx * all->plr->planey); //required for correct matrix multiplication
 
-		double transformX = invDet * (all->plr->dirY * spriteX - all->plr->dirX * spriteY);
-		double transformY = invDet * (-all->plr->planeY * spriteX + all->plr->planeX *
+		double transformX = invDet * (all->plr->diry * spriteX - all->plr->dirx * spriteY);
+		double transformY = invDet * (-all->plr->planey * spriteX + all->plr->planex *
 																	spriteY); //this is actually the depth inside the screen, that what Z is in 3D
 
 		int spriteScreenX = (int)((all->w / 2) * (1 + transformX / transformY));
@@ -199,8 +199,8 @@ void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *Z
 			//1) it's in front of camera plane so you don't see things behind you
 			//2) it's on the screen (left)
 			//3) it's on the screen (right)
-			//4) ZBuffer, with perpendicular distance
-			if (transformY > 0 && stripe > 0 && stripe < all->w && transformY < ZBuffer[stripe])
+			//4) z_buf, with perpendicular distance
+			if (transformY > 0 && stripe > 0 && stripe < all->w && transformY < z_buf[stripe])
 				for (int y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
 				{
 					int d = (y) * 256 - all->h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
@@ -245,7 +245,8 @@ int main()
 	parse_sprite (&all);
 	parse_resolution (&all);
 	parse_path (&all);
-	parse_color (&all);
+	parse_color_floor(&all);
+	parse_color_sky(&all);
 	tex_open(&all);
 	sprites_open (&all);
 	get_tex_data(&all);

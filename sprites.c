@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:36:29 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 21:37:18 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:04:12 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_dblswap(double *a, double *b)
 	*b = t;
 }
 
-void	sortSprites(int *order, double *distance, int number)
+void	spr_sort(int *order, double *distance, int number)
 {
 	int i;
 	int	j;
