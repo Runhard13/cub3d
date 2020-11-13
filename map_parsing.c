@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 21:39:37 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/11 21:06:59 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char **read_map (int fd)
 	return (make_map(&head, amount));
 }
 
-int find_player (t_all *all)
+void parse_player_and_sprite (t_all *all)
 {
 	int x = 0;
 	int y = 0;
@@ -100,18 +100,16 @@ int find_player (t_all *all)
 			}
 			if (all->map[y][x] == '2')
 			{
-
 				all->item->x = x;
 				all->item->y = y;
 				all->item->sprite_count++;
 				x++;
 			}
-
 			else
 				x++;
 		}
+
 		y++;
 	}
-return 0;
 }
 

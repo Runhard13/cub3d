@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/27 13:47:15 by null              #+#    #+#             */
-/*   Updated: 2020/05/31 16:37:52 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:54:21 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,16 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char	*ptr;
 
-	if (!s || (long int)len < 0)
+	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
-	if (len > (ft_strlen(s) - start))
-		len = ft_strlen(s) - start;
-	if (!(str = (char*)malloc(len + 1)))
+	if (!(ptr = malloc(len + 1)))
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = '\0';
-	return (str);
+	s += start;
+	ft_memcpy(ptr, s, len);
+	ptr[len] = '\0';
+	return (ptr);
 }

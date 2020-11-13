@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/27 13:55:06 by null              #+#    #+#             */
-/*   Updated: 2020/05/30 18:35:28 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:53:03 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,18 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	char	*ptr;
+	size_t	t1;
+	size_t	t2;
 
 	if (!s1 || !s2)
 		return (NULL);
-	str = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!str)
+	t1 = ft_strlen(s1);
+	t2 = ft_strlen(s2);
+	if (!(ptr = malloc(t1 + t2 + 1)))
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		str[j++] = s1[i];
-		i++;
-	}
-	i = 0;
-	while (s2[i])
-	{
-		str[j++] = s2[i];
-		i++;
-	}
-	str[j] = '\0';
-	return (str);
+	ft_memcpy(ptr, s1, t1);
+	ft_memcpy((ptr + t1), s2, t2);
+	ptr[(t1 + t2)] = '\0';
+	return (ptr);
 }

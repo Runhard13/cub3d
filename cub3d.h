@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 21:32:34 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/11 20:06:47 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 #define texE 4
 
 #include "libft/libft.h"
-#include "gnl/get_next_line.h"
 #include <fcntl.h>
 #include "minilibx_mms_20200219/mlx.h"
 #include <math.h>
@@ -51,7 +50,7 @@ typedef struct  s_data // картинка
     int         endian;
 }               t_data;
 
-typedef struct	s_plr // player and ray
+typedef struct	s_plr // игрок и луч
 {
 	double		posX;
 	double		posY;
@@ -59,7 +58,6 @@ typedef struct	s_plr // player and ray
 	double 		dirY;
 	double		planeX;
 	double		planeY;
-	int 		side;
 }				  t_plr;
 
 typedef struct	s_tex // textures
@@ -79,8 +77,6 @@ typedef struct	s_spr // sprite
 	int x;
 	int y;
 	int sprite_count;
-	struct s_spr *next;
-
 }				  t_spr;
 
 
@@ -94,7 +90,8 @@ typedef struct	s_all // все вместе
 	t_tex		*east;
 	t_tex		*west;
 	t_tex		*sprite;
-	t_spr	*item;
+	t_spr		*item;
+	double 		*ZBuffer;
 }				  t_all;
 
 
@@ -102,16 +99,14 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		key_press(int keycode, t_all *all);
 char	**make_map(t_list **head, size_t size);
 char	**read_map (int fd);
-void	draw_line (t_all *all, int side, int drawStart, int drawEnd, int x);
-void	big_square(t_all *all);
 void	drawscreen(t_all *all);
-int		find_player (t_all *all);
+void parse_player_and_sprite (t_all *all);
 void	tex_open (t_all *all);
-void get_tex_data (t_all *all);
-int get_color (t_tex *tex, int x, int y);
-int wall_side (int side, double rayDirX, double rayDirY);
-void sky_floor(t_all *all);
-void sprites_open (t_all *all);
+void	get_tex_data (t_all *all);
+int 	get_color (t_tex *tex, int x, int y);
+int 	wall_side (int side, double rayDirX, double rayDirY);
+void 	sky_floor(t_all *all);
+void 	sprites_open (t_all *all);
 void	sortSprites(int *order, double *distance, int number);
 void draw_sprite(t_all *all, int *spriteOrder, double *spriteDistance, double *ZBuffer);
 

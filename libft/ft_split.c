@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/27 14:01:58 by null              #+#    #+#             */
-/*   Updated: 2020/05/31 16:46:17 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:52:40 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	wc(char const *s, char c)
 {
-	unsigned int	i;
-	int				words;
+	int	i;
+	int words;
 
 	i = 0;
 	words = 0;
@@ -44,7 +44,7 @@ static char	*ft_strndup(const char *s, size_t n)
 
 static char	**ft_clean(char **tab)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (tab[i])

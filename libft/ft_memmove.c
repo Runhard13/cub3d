@@ -3,38 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/26 22:32:46 by null              #+#    #+#             */
-/*   Updated: 2020/05/30 18:06:19 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:51:57 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *destination, const void *source, size_t num)
-{
-	size_t				i;
-	unsigned char		*ptr;
-	const unsigned char	*ptr2;
+#include "libft.h"
 
-	ptr = (unsigned char*)destination;
-	ptr2 = (unsigned char*)source;
-	if (!ptr && !ptr2)
-		return (NULL);
+void		*ft_memmove(void *dest, const void *source, size_t len)
+{
+	char	*s;
+	char	*d;
+	size_t	i;
+
 	i = 0;
-	if (ptr2 > ptr)
+	s = (char *)source;
+	d = (char *)dest;
+	if (s < d)
 	{
-		while (i < num)
+		while (len)
 		{
-			ptr[i] = ptr2[i];
-			i++;
+			len--;
+			*(d + len) = *(s + len);
 		}
 	}
 	else
 	{
-		while (num--)
-			ptr[num] = ptr2[num];
+		while (i < len)
+		{
+			*(d + i) = *(s + i);
+			i++;
+		}
 	}
-	return (destination);
+	return (dest);
 }

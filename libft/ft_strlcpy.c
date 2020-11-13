@@ -3,32 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/25 12:01:16 by null              #+#    #+#             */
-/*   Updated: 2020/05/28 01:55:28 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:53:27 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	if (!dst || !src)
+	if (!src)
 		return (0);
-	if (size > 0)
+	if (!size)
+		return (ft_strlen(src));
+	while (i < (size - 1) && src[i] != '\0')
 	{
-		while (*(src + i) != '\0' && i + 1 < size)
-		{
-			*(dst + i) = *(src + i);
-			i++;
-		}
-		*(dst + i) = '\0';
-	}
-	while (*(src + i) != '\0')
+		dest[i] = src[i];
 		i++;
-	return (i);
+	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }

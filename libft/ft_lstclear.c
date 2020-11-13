@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/31 17:49:46 by null              #+#    #+#             */
-/*   Updated: 2020/05/31 17:56:17 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:50:29 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *next;
-	t_list *node;
+	t_list	*tmp;
+	t_list	*ptr;
 
-	node = *lst;
-	while (node)
+	if (!*lst || !del)
+		return ;
+	tmp = *lst;
+	while (tmp != NULL)
 	{
-		next = node->next;
-		del(node->content);
-		free(node);
-		node = next;
+		ptr = tmp->next;
+		del(tmp->content);
+		free(tmp);
+		tmp = ptr;
 	}
 	*lst = NULL;
 }

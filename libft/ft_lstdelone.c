@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/31 17:46:03 by null              #+#    #+#             */
-/*   Updated: 2020/05/31 17:46:13 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:50:36 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list *next;
-
-	next = lst->next;
+	if (!lst || !del)
+		return ;
 	del(lst->content);
 	free(lst);
-	lst = next;
+	lst = NULL;
 }

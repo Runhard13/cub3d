@@ -3,52 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/27 14:04:44 by null              #+#    #+#             */
-/*   Updated: 2020/05/30 22:24:17 by null             ###   ########.fr       */
+/*   Created: 2020/11/13 11:49:51 by cdrennan          #+#    #+#             */
+/*   Updated: 2020/11/13 12:13:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			number_size(unsigned int nb)
+static int	intlen(int n, int len)
 {
-	int	size;
-
-	size = 0;
-	while (nb >= 10)
+	if (n <= 0)
 	{
-		nb /= 10;
-		size++;
+		len++;
+		n = -n;
 	}
-	return (size + 1);
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }
 
-char				*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	nb;
-	int				index;
-	int				size;
+	int		len;
+	char	*str;
 
-	if (n < 0)
-		nb = (n * -1);
-	else
-		nb = n;
-	size = number_size(nb);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (n < 0 ? 1 : 0)))))
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = intlen(n, 0);
+	if (!(str = malloc((len + 1))))
 		return (NULL);
-	if (n < 0 && (str[index] = '-'))
-		size++;
-	index = size - 1;
-	while (nb >= 10)
+	str[len] = '\0';
+	if (n < 0)
 	{
-		str[index--] = (char)(nb % 10 + 48);
-		nb /= 10;
+		str[0] = '-';
+		n = -n;
 	}
-	str[index] = (char)(nb % 10 + 48);
-	str[size] = '\0';
+	while (len--)
+	{
+		if (n <= 9 && n >= 0)
+		{
+			str[len] = (n + 48);
+			return (str);
+		}
+		str[len] = (n % 10 + 48);
+		n /= 10;
+	}
 	return (str);
 }

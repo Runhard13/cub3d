@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/10 22:01:34 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/11 20:14:04 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,7 +248,7 @@ int main()
     all.item = &item;
     all.map = read_map(fd);
 
-	find_player (&all);
+	parse_player_and_sprite(&all);
 	tex_open(&all);
 	sprites_open (&all);
 	get_tex_data(&all);

@@ -6,38 +6,13 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:27:17 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/08/26 23:53:18 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/13 12:02:09 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void	*ft_memset(void *ptr, int value, size_t num)
-{
-	unsigned char	*i;
-
-	i = (unsigned char*)ptr;
-	while (num-- > 0)
-		*(i++) = (unsigned char)value;
-	return (ptr);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-void	*ft_calloc(size_t num, size_t size)
-{
-	unsigned char	*ptr;
-
-	if (!(ptr = (unsigned char *)malloc(size * num)))
-		return (NULL);
-	ft_bzero(ptr, num * size);
-	return ((void*)ptr);
-}
-
-int		ft_free(void **ptr)
+static int		ft_free(void **ptr)
 {
 	if (*ptr)
 	{
@@ -48,7 +23,7 @@ int		ft_free(void **ptr)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	char		*temp;
 	ssize_t		b_read;

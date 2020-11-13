@@ -1,6 +1,0 @@
-1. Parsing
-2. Map
-3. Player
-4. Keyboard
-5. Raycasting
-6. Sprites, textures
