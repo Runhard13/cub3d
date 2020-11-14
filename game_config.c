@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void game_init (t_all *all)
+void game_config (t_all *all)
 {
 	parse_player(all);
 	parse_sprite (all);

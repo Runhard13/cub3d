@@ -6,8 +6,8 @@ WE ./pics/AnyConv.com__greystone.xpm
 EA ./pics/AnyConv.com__wood.xpm
 S  ./pics/AnyConv.com__barrel.xpm
 
-F 220,100,0
-C 225,30,0
+F 50,   200,     200
+C 200, 100, 50
 
 
 111111111111111111111111

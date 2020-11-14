@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 18:01:07 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:08:06 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ char	**make_map(t_list **head, size_t size)
 		map[++i] = tmp->content;
 		tmp = tmp->next;
 	}
-	i = -1;
-	while (map[++i])
-		ft_putendl_fd(map[i], 1);
 	return (map);
 }
 
@@ -61,7 +58,8 @@ char	*line_allocation(char *map)
 
 	i = 0;
 	len = (int)ft_strlen(map);
-	line = malloc(sizeof(char *) * (len + 1));
+	if (!(line = malloc(sizeof(char *) * (len + 1))))
+		return (NULL);
 	while (map[i])
 	{
 		line[i] = map[i];

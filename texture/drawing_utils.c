@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 14:22:31 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 15:15:34 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ void	drawscreen(t_all *all)
 	int		x;
 	int		draw_start;
 	int		draw_end;
-
-	all->item->spr_dist = malloc(sizeof(double) * all->item->sprite_count);
-	all->item->spr_ord = malloc(sizeof(int) * all->item->sprite_count);
-	ft_memset(all->item->spr_ord, 0, (sizeof(int) * all->item->sprite_count));
-	ft_memset(all->item->spr_dist, 0, (sizeof(int) * all->item->sprite_count));
 
 	x = 0;
 	while (x++ < all->w)

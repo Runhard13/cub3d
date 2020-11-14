@@ -54,7 +54,10 @@ int	key_press(int keycode, t_all *all)
 	if (keycode == D)
 		strafe_right(all);
 	if (keycode == ESC)
+	{
+		free_all(all);
 		exit(0);
+	}
 	sky_floor(all);
 	drawscreen(all);
 	return (0);

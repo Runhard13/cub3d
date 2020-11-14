@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 14:37:10 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 18:43:44 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:10:07 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	parse_player(t_all *all)
 	int y;
 
 	y = 0;
-	x = 0;
 	while (all->map[y])
 	{
 		x = 0;

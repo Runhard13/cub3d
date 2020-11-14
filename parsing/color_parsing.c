@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:11:22 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 16:08:02 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:02:57 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		create_trgb(int t, int r, int g, int b)
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
-void	parse_color_floor(t_all *all)
+int	parse_color_floor(t_all *all)
 {
 	int		y;
 	char	*line;
@@ -30,7 +30,8 @@ void	parse_color_floor(t_all *all)
 	{
 		if (all->map[y][0] == 'F')
 		{
-			line = line_allocation(all->map[y]);
+			if(!(line = line_allocation(all->map[y])))
+				return(error(all, "Malloc error during floor color parsing"));
 			line += 1;
 			r = cub_atoi(line);
 			while (*line && (*line == ' ' || *line == ','))
@@ -43,9 +44,10 @@ void	parse_color_floor(t_all *all)
 		}
 		y++;
 	}
+	return (0);
 }
 
-void	parse_color_sky(t_all *all)
+int	parse_color_sky(t_all *all)
 {
 	int		y;
 	char	*line;
@@ -58,7 +60,8 @@ void	parse_color_sky(t_all *all)
 	{
 		if (all->map[y][0] == 'C')
 		{
-			line = line_allocation(all->map[y]);
+			if(!(line = line_allocation(all->map[y])))
+				return(error(all, "Malloc error during sky color parsing"));
 			line += 1;
 			r = cub_atoi(line);
 			while (*line && (*line == ' ' || *line == ','))
@@ -71,4 +74,5 @@ void	parse_color_sky(t_all *all)
 		}
 		y++;
 	}
+	return (0);
 }

@@ -6,18 +6,27 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 00:03:31 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:01:49 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main()
+int	main(int argc, char **argv)
 {
-	int fd = open("./maps/map.cub", O_RDONLY);
-	t_data  img;
+	int		fd;
+	char	*path;
+
+	t_all all;
+	ft_memset(&all, 0, sizeof(t_all));
+
+	if (argc > 3 || argc == 1)
+		return (error(&all, "Wrong number of arguments"));
+	path = argv[1];
+	fd = open_fd(&all, path);
+
+	t_data img;
     t_plr plr;
-    t_all all;
     t_tex north;
     t_tex south;
     t_tex west;
@@ -29,7 +38,6 @@ int	main()
 
 	ft_memset(&img, 0, sizeof(t_data));
 	ft_memset(&plr, 0, sizeof(t_plr));
-	ft_memset(&all, 0, sizeof(t_all));
 	ft_memset(&north, 0, sizeof(t_tex));
 	ft_memset(&south, 0, sizeof(t_tex));
 	ft_memset(&west, 0, sizeof(t_tex));
@@ -54,8 +62,16 @@ int	main()
 	all.cast = &cast;
 	all.tex = &tex;
 
-    game_init(&all);
-	all.zbuffer = malloc(sizeof(double) * all.w);
+    game_config(&all);
+
+	if (!(all.item->spr_dist = malloc(sizeof(double) * all.item->sprite_count)))
+		return (error(&all, "Sprite_dist array allocation error"));
+	if (!(all.item->spr_ord = malloc(sizeof(int) * all.item->sprite_count)))
+		return (error(&all, "Sprite_ord array allocation error"));
+	ft_memset(all.item->spr_ord, 0, (sizeof(int) * all.item->sprite_count));
+	ft_memset(all.item->spr_dist, 0, (sizeof(int) * all.item->sprite_count));
+	if (!(all.zbuffer = malloc(sizeof(double) * all.w)))
+		return (error(&all, "ZBuffer allocation error"));
 	ft_memset(all.zbuffer, 0, sizeof(double) * all.w);
 
 

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 13:05:40 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 18:46:59 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:16:51 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int		cub_atoi(const char *str)
 		result *= 10;
 		result += str[i++] - 48;
 	}
-	return (result);
+	return ((int)result);
 }
 
-void	parse_resolution(t_all *all)
+int	parse_resolution(t_all *all)
 {
 	int		y;
 	char	*line;
@@ -56,7 +56,8 @@ void	parse_resolution(t_all *all)
 	{
 		if (all->map[y][0] == 'R')
 		{
-			line = line_allocation(all->map[y]);
+			if(!(line = line_allocation(all->map[y])))
+				return(error(all, "Malloc error during resolution parsing"));
 			line += 1;
 			all->w = cub_atoi(line);
 			while (*line && *line == ' ')
@@ -69,4 +70,5 @@ void	parse_resolution(t_all *all)
 		}
 		y++;
 	}
+	return (0);
 }
