@@ -6,11 +6,11 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 00:42:21 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:22:31 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -50,9 +50,11 @@ void	drawscreen(t_all *all)
 	int		draw_start;
 	int		draw_end;
 
-
 	all->item->spr_dist = malloc(sizeof(double) * all->item->sprite_count);
 	all->item->spr_ord = malloc(sizeof(int) * all->item->sprite_count);
+	ft_memset(all->item->spr_ord, 0, (sizeof(int) * all->item->sprite_count));
+	ft_memset(all->item->spr_dist, 0, (sizeof(int) * all->item->sprite_count));
+
 	x = 0;
 	while (x++ < all->w)
 	{

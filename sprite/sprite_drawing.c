@@ -6,11 +6,11 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:30:25 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 14:07:22 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:07:38 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	find_color(t_all *all)
 {

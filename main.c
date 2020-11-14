@@ -27,6 +27,19 @@ int	main()
     t_cast cast;
 	t_texture tex;
 
+	ft_memset(&img, 0, sizeof(t_data));
+	ft_memset(&plr, 0, sizeof(t_plr));
+	ft_memset(&all, 0, sizeof(t_all));
+	ft_memset(&north, 0, sizeof(t_tex));
+	ft_memset(&south, 0, sizeof(t_tex));
+	ft_memset(&west, 0, sizeof(t_tex));
+	ft_memset(&east, 0, sizeof(t_tex));
+	ft_memset(&sprite, 0, sizeof(t_tex));
+	ft_memset(&item, 0, sizeof(t_spr));
+	ft_memset(&cast, 0, sizeof(t_cast));
+	ft_memset(&tex, 0, sizeof(t_texture));
+
+
 	img.mlx = mlx_init();
 
 	all.map = read_map(fd);
