@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 14:27:51 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 14:44:00 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 14:48:53 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void free_all(t_all *all)
 		free(all->item->spr_ord);
 	if (all->item->spr_dist)
 		free(all->item->spr_dist);
+	exit(EXIT_FAILURE);
 }

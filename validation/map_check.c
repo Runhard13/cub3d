@@ -6,6 +6,13 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:20:21 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 15:52:11 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:41:51 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../cub3d.h"
+
+int validate_map(t_all *all)
+{
+
+}

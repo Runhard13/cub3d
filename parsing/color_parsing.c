@@ -6,11 +6,18 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:11:22 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 16:02:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 16:51:00 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int check_color (int r, int g, int b)
+{
+	if ((r < 0 || r > 255) || (g < 0 || r > 255) || (b < 0 || r > 255))
+		return (0);
+	return (1);
+}
 
 int		create_trgb(int t, int r, int g, int b)
 {
@@ -40,6 +47,8 @@ int	parse_color_floor(t_all *all)
 			while (*line && (*line == ' ' || *line == ','))
 				line++;
 			b = cub_atoi(line + get_intlen(r) + get_intlen(g));
+			if (!(check_color(r, g, b)))
+				return(error(all, "Invalid floor color"));
 			all->floor_color = create_trgb(0, r, g, b);
 		}
 		y++;
@@ -70,6 +79,8 @@ int	parse_color_sky(t_all *all)
 			while (*line && (*line == ' ' || *line == ','))
 				line++;
 			b = cub_atoi(line + get_intlen(r) + get_intlen(g));
+			if (!(check_color(r, g, b)))
+				return(error(all, "Invalid sky color"));
 			all->sky_color = create_trgb(0, r, g, b);
 		}
 		y++;
