@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 00:56:14 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 13:25:38 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct	s_cast
 	double 		raydirx;
 	double 		raydiry;
 	double 		perp_wall_dist;
-	double 		line_h;
+	int 		line_h;
 	int			step_x;
 	int 		step_y;
 	double 		side_x;
@@ -107,8 +107,21 @@ typedef struct	s_spr
 	int			sprite_count;
 	double		sprite_x;
 	double 		sprite_y;
+	double 		transform_x;
+	double 		transform_y;
+	int 		sprite_screen_x;
+	int 		sprite_h;
+	int 		sprite_w;
+	int 		draw_start_x;
+	int 		draw_start_y;
+	int 		draw_end_x;
+	int 		draw_end_y;
+	double 		inv_det;
 	int 		*spr_ord;
 	double 		*spr_dist;
+	int 		tex_x;
+	int 		tex_y;
+
 }				t_spr;
 
 typedef struct	s_all
