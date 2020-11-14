@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 16:43:53 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 17:28:17 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct	s_all
 	t_cast		*cast;
 	t_texture	*tex;
 	double 		*zbuffer;
+	int 		screenshot;
 }				t_all;
 
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -150,12 +151,11 @@ char			**make_map(t_list **head, size_t size);
 char			**read_map (int fd);
 void			drawscreen(t_all *all);
 void			parse_player(t_all *all);
-void			tex_open(t_all *all);
+int				tex_open(t_all *all);
 void			get_tex_data (t_all *all);
 int				get_color(t_tex *tex, int x, int y);
 int				wall_side(t_all *all);
 void			sky_floor(t_all *all);
-void			sprites_open(t_all *all);
 void			spr_sort(int *spr_ord, double *spr_dist, int number);
 void 			draw_sprite(t_all *all, int *spr_ord, double *spr_dist);
 int				parse_resolution(t_all *all);
@@ -178,7 +178,7 @@ void			player_north(t_all *all, int x, int y);
 void			player_south(t_all *all, int x, int y);
 void			player_west(t_all *all, int x, int y);
 void			player_east(t_all *all, int x, int y);
-void			game_config(t_all *all);
+int				game_config(t_all *all);
 void			tex_draw(t_all *all, int x, int drawStart, int drawEnd);
 void			rays_calc(t_all *all, int x);
 void 			preform_dda(t_all *all);
@@ -187,5 +187,6 @@ void			free_all(t_all *all);
 void			destroy_images(t_all *all);
 int				error(t_all *all, char *msg);
 int				open_fd(t_all *all, char *path);
+int 			validate_map(t_all *all);
 
 #endif

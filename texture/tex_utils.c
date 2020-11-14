@@ -19,16 +19,25 @@ int		wall_side(t_all *all)
 	return ((all->cast->raydirx < 0) ? (TEX_W) : (TEX_E));
 }
 
-void	tex_open(t_all *all)
+int	tex_open(t_all *all)
 {
-	all->north->tex_img = mlx_xpm_file_to_image(all->img->mlx,
-			all->north->path, &all->north->tex_width, &all->north->tex_height);
-	all->south->tex_img = mlx_xpm_file_to_image(all->img->mlx,
-			all->south->path, &all->south->tex_width, &all->south->tex_height);
-	all->east->tex_img = mlx_xpm_file_to_image(all->img->mlx,
-			all->east->path, &all->east->tex_width, &all->east->tex_height);
-	all->west->tex_img = mlx_xpm_file_to_image(all->img->mlx,
-			all->west->path, &all->west->tex_width, &all->west->tex_height);
+
+	if(!(all->north->tex_img = mlx_xpm_file_to_image(all->img->mlx,
+			all->north->path, &all->north->tex_width, &all->north->tex_height)))
+		return (0);
+	if(!(all->south->tex_img = mlx_xpm_file_to_image(all->img->mlx,
+			all->south->path, &all->south->tex_width, &all->south->tex_height)))
+		return (0);
+	if(!(all->east->tex_img = mlx_xpm_file_to_image(all->img->mlx,
+			all->east->path, &all->east->tex_width, &all->east->tex_height)))
+		return (0);
+	if(!(all->west->tex_img = mlx_xpm_file_to_image(all->img->mlx,
+			all->west->path, &all->west->tex_width, &all->west->tex_height)))
+		return (0);
+	if(!(all->sprite->tex_img = mlx_xpm_file_to_image(all->img->mlx,
+			all->sprite->path, &all->sprite->tex_width, &all->sprite->tex_height)))
+		return (0);
+	return (1);
 }
 
 void	get_tex_data(t_all *all)

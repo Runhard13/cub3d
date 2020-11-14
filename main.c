@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 16:01:49 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 17:34:44 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 
 	if (argc > 3 || argc == 1)
 		return (error(&all, "Wrong number of arguments"));
+	if (argc == 3 && !(ft_strncmp(argv[2], "--save", 6)) && ft_strlen(argv[2]) == 6)
+		all.screenshot = 1;
 	path = argv[1];
 	fd = open_fd(&all, path);
 
@@ -63,6 +65,7 @@ int	main(int argc, char **argv)
 	all.tex = &tex;
 
     game_config(&all);
+    validate_map (&all);
 
 	if (!(all.item->spr_dist = malloc(sizeof(double) * all.item->sprite_count)))
 		return (error(&all, "Sprite_dist array allocation error"));
