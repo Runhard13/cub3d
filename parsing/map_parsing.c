@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 16:08:06 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 20:23:35 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	**make_map(t_list **head, size_t size)
 	int		i;
 	t_list	*tmp;
 
-	map = ft_calloc(size + 1, sizeof(char *));
+	if(!(map = ft_calloc(size + 1, sizeof(char *))))
+		return (NULL);
 	tmp = *head;
 	i = -1;
 	while (tmp)

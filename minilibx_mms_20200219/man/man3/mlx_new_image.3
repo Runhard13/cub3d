@@ -16,7 +16,7 @@ MiniLibX - Manipulating images
 .fi
 .B mlx_get_data_addr
 (
-.I void *img_ptr, int *bpp, int *size_line, int *endian
+.I void *img_ptr, int *bits_per_pixel, int *size_line, int *endian
 );
 
 .nf
@@ -84,8 +84,8 @@ connection identifier (see the
 .B mlx
 manual).
 
-The user can draw inall->cast->side the image (see below), and
-can dump the image inall->cast->side a specified window at any time to
+The user can draw inside the image (see below), and
+can dump the image inside a specified window at any time to
 display it on the screen. This is done using
 .B mlx_put_image_to_window
 (). Three identifiers are needed here, for the connection to the
@@ -107,7 +107,7 @@ to modify it later. The
 .I img_ptr
 parameter specifies the image to use. The three next parameters should
 be the addresses of three different valid integers.
-.I bpp
+.I bits_per_pixel
 will be filled with the number of bits needed to represent a pixel color
 (also called the depth of the image).
 .I size_line
@@ -126,10 +126,10 @@ returns a
 .I char *
 address that represents the begining of the memory area where the image
 is stored. From this adress, the first
-.I bpp
+.I bits_per_pixel
 bits represent the color of the first pixel in the first line of
 the image. The second group of
-.I bpp
+.I bits_per_pixel
 bits represent the second pixel of the first line, and so on.
 Add
 .I size_line
@@ -141,14 +141,14 @@ destroys the given image (
 .I img_ptr
 ).
 
-.SH STORING COLOR INall->cast->side IMAGES
+.SH STORING COLOR INSIDE IMAGES
 
 Depending on the display, the number of bits used to store a pixel color
 can change. The user usually represents a color in RGB mode, using
 one byte for each component (see
 .B mlx_pixel_put
 manual). This must be translated to fit the
-.I bpp
+.I bits_per_pixel
 requirement of the image, and make the color understandable to the display.
 That is the purpose of the
 .B mlx_get_color_value
@@ -158,7 +158,7 @@ parameter, and returns an
 .I unsigned int
 value.
 The
-.I bpp
+.I bits_per_pixel
 least significant bits of this value can be stored in the image. You can
 avoid using this function if there is no conversion needed (eg. in case of
 24 bits depth, or 32 bits depth).

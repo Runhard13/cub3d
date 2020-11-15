@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 17:34:44 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 19:34:33 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	main(int argc, char **argv)
 	ft_memset(&tex, 0, sizeof(t_texture));
 
 
-	img.mlx = mlx_init();
+	if(!(img.mlx = mlx_init()))
+		return (error(&all, "MLX can't init"));
 
 	all.map = read_map(fd);
 	all.plr = &plr;
@@ -78,8 +79,10 @@ int	main(int argc, char **argv)
 	ft_memset(all.zbuffer, 0, sizeof(double) * all.w);
 
 
-    img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub");
-    img.img = mlx_new_image(img.mlx, all.w, all.h);
+    if(!(img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub")))
+		return (error(&all, "MLX can't create new window"));
+    if(!(img.img = mlx_new_image(img.mlx, all.w, all.h)))
+		return (error(&all, "MLX can't create new image"));
     img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length,
                                  &img.endian);
 
@@ -87,5 +90,6 @@ int	main(int argc, char **argv)
     drawscreen(&all);
 
     mlx_hook(img.mlx_win, 2, (1L << 0), &key_press, &all);
+	mlx_hook(img.mlx_win, 17, 1L << 17, free_all, &all);
     mlx_loop(img.mlx);
 }

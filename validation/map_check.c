@@ -6,11 +6,27 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:20:21 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 17:30:44 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:26:52 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int	check_resolution(t_all *all)
+{
+	int		y;
+	int i;
+
+	y = 0;
+	i = 0;
+	while (all->map[y])
+	{
+		if(all->map[y][0] == 'R')
+			i++;
+		y++;
+	}
+	return (i == 1 ? 1 : 0);
+}
 
 int	check_path_tex(t_all *all)
 {
@@ -87,6 +103,10 @@ int validate_map(t_all *all)
 		return (error(all, "Invalid texture config in map"));
 	if(!(check_floor_sky(all)))
 		return (error(all, "Invalid floor or sky color"));
+	if(!(check_resolution(all)))
+		return (error(all, "Invalid resolution"));
+	if(!(map_check(all)))
+		return (error(all, "Invalid map"));
 
 	return (1);
 }

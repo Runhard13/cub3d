@@ -13,13 +13,47 @@
   <component name="ChangeListManager">
     <list default="true" id="92d18612-0d59-452a-910a-0aff1f864d48" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/cub3d.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_config.c" beforeDir="false" afterPath="$PROJECT_DIR$/game_config.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_substr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_substr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmlx.dylib" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.cub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/font.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/interface.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/interface.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/man/man3/mlx.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/man/man3/mlx_loop.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/man/man3/mlx_new_image.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/man/man3/mlx_new_window.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/man/man3/mlx_pixel_put.3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_image.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_image.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_image.swiftdoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_image.swiftmodule" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_init.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_init.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_init.swiftdoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_init.swiftmodule" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_png.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_png.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_rgb.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_string_put.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_string_put.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_window.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_window.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_window.swiftdoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_window.swiftmodule" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_xpm.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minilibx_mms_20200219/mlx_xpm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/map_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/map_parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/resolution_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/resolution_parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player/player_direction_init.c" beforeDir="false" afterPath="$PROJECT_DIR$/player/player_direction_init.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprite/sprite_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/sprite/sprite_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/texture/tex_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/texture/tex_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/validation/exit.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/validation/map_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/validation/map_check.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -34,9 +68,9 @@
     <session id="63022141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="39" />
-          <entry key="project.open.time.0" value="20" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="44" />
+          <entry key="project.open.time.0" value="23" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
@@ -44,48 +78,51 @@
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="5" />
-          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.opened" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Makefile" value="16" />
-          <entry key="c" value="461" />
-          <entry key="cub" value="52" />
+          <entry key="Makefile" value="22" />
+          <entry key="c" value="534" />
+          <entry key="cub" value="59" />
           <entry key="gitignore" value="4" />
-          <entry key="h" value="69" />
-          <entry key="txt" value="18" />
+          <entry key="h" value="81" />
+          <entry key="m" value="2" />
+          <entry key="plist" value="1" />
+          <entry key="swift" value="1" />
+          <entry key="txt" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="8" />
-          <entry key="Makefile" value="16" />
-          <entry key="ObjectiveC" value="530" />
-          <entry key="PLAIN_TEXT" value="66" />
+          <entry key="CMakeLists.txt" value="12" />
+          <entry key="Makefile" value="22" />
+          <entry key="ObjectiveC" value="618" />
+          <entry key="PLAIN_TEXT" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Makefile" value="306" />
-          <entry key="c" value="18033" />
-          <entry key="cub" value="607" />
+          <entry key="Makefile" value="337" />
+          <entry key="c" value="19420" />
+          <entry key="cub" value="799" />
           <entry key="gitignore" value="23" />
-          <entry key="h" value="2628" />
+          <entry key="h" value="2739" />
           <entry key="m" value="3" />
-          <entry key="txt" value="1116" />
+          <entry key="txt" value="1122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="154" />
-          <entry key="Makefile" value="306" />
-          <entry key="ObjectiveC" value="20664" />
-          <entry key="PLAIN_TEXT" value="1592" />
+          <entry key="CMakeLists.txt" value="160" />
+          <entry key="Makefile" value="337" />
+          <entry key="ObjectiveC" value="22162" />
+          <entry key="PLAIN_TEXT" value="1784" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -98,59 +135,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maps/map.cub">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parsing/color_parsing.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="88" column="1" selection-start-line="58" selection-end-line="88" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game_config.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cub3d.h">
+        <entry file="file://$PROJECT_DIR$/validation/map_check2.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-275">
-              <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
-              <folding>
-                <element signature="e#938#963#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/validation/map_check.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1133">
-              <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+            <state relative-caret-position="511">
+              <caret line="59" column="15" lean-forward="true" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -180,6 +169,7 @@
       <find>drawEnd</find>
       <find>drawStart</find>
       <find>draw_emd</find>
+      <find>malloc</find>
     </findStrings>
     <replaceStrings>
       <replace>diry</replace>
@@ -215,9 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pars.c" />
-        <option value="$PROJECT_DIR$/map.c" />
-        <option value="$PROJECT_DIR$/old/draw_player.c" />
         <option value="$PROJECT_DIR$/old/pars.c" />
         <option value="$PROJECT_DIR$/old/draw3d.c" />
         <option value="$PROJECT_DIR$/draw3d.c" />
@@ -226,7 +213,6 @@
         <option value="$PROJECT_DIR$/player.c" />
         <option value="$PROJECT_DIR$/structure.txt" />
         <option value="$PROJECT_DIR$/libft/ft_atoi.c" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/libft/Makefile" />
         <option value="$PROJECT_DIR$/color_parsing.c" />
         <option value="$PROJECT_DIR$/utils.c" />
@@ -251,21 +237,25 @@
         <option value="$PROJECT_DIR$/player/hooks.c" />
         <option value="$PROJECT_DIR$/texture/drawing_utils.c" />
         <option value="$PROJECT_DIR$/validation/errors.c" />
-        <option value="$PROJECT_DIR$/parsing/map_parsing.c" />
         <option value="$PROJECT_DIR$/parsing/player_parsing.c" />
         <option value="$PROJECT_DIR$/parsing/path_parsing.c" />
         <option value="$PROJECT_DIR$/parsing/sprite_parsing.c" />
-        <option value="$PROJECT_DIR$/validation/exit.c" />
         <option value="$PROJECT_DIR$/parsing/color_parsing.c" />
-        <option value="$PROJECT_DIR$/parsing/resolution_parsing.c" />
         <option value="$PROJECT_DIR$/sprite/sprite_utils.c" />
         <option value="$PROJECT_DIR$/texture/tex_utils.c" />
         <option value="$PROJECT_DIR$/game_config.c" />
+        <option value="$PROJECT_DIR$/parsing/resolution_parsing.c" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/parsing/map_parsing.c" />
+        <option value="$PROJECT_DIR$/libft/ft_substr.c" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/player/player_direction_init.c" />
-        <option value="$PROJECT_DIR$/maps/map.cub" />
-        <option value="$PROJECT_DIR$/validation/map_check.c" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/validation/exit.c" />
         <option value="$PROJECT_DIR$/cub3d.h" />
+        <option value="$PROJECT_DIR$/validation/map_check.c" />
+        <option value="$PROJECT_DIR$/maps/map.cub" />
+        <option value="$PROJECT_DIR$/validation/map_check2.c" />
       </list>
     </option>
   </component>
@@ -289,6 +279,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,18 +295,12 @@
             <path>
               <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
               <item name="cub3d" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cub3d" type="462c0819:PsiDirectoryNode" />
               <item name="validation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,7 +396,12 @@
       <workItem from="1605305046429" duration="435000" />
       <workItem from="1605344332722" duration="42000" />
       <workItem from="1605344378189" duration="12352000" />
-      <workItem from="1605357725882" duration="7922000" />
+      <workItem from="1605357725882" duration="17391000" />
+      <workItem from="1605377060929" duration="2040000" />
+      <workItem from="1605381604037" duration="833000" />
+      <workItem from="1605382440552" duration="405000" />
+      <workItem from="1605382868214" duration="568000" />
+      <workItem from="1605453982622" duration="5694000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1604428154215</created>
@@ -508,7 +498,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223495000" />
+    <option name="totallyTimeSpent" value="242504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -520,25 +510,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="127" y="116" width="1658" height="1056" extended-state="0" />
+    <frame x="562" y="134" width="1658" height="1056" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23081683" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17264852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48692152" weight="0.40456432" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49819234" weight="0.41908714" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47586635" visible="true" weight="0.40456432" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49566832" weight="0.41908714" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32883817" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49876237" weight="0.32883817" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963847" weight="0.32780084" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49814355" weight="0.32780084" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49564052" weight="0.3246888" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5043595" side_tool="true" weight="0.24" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32780084" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.48490945" visible="true" weight="0.3952282" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49319306" weight="0.3246888" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.19740099" side_tool="true" weight="0.3952282" />
+      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.49938118" weight="0.32780084" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.802599" weight="0.3952282" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -546,23 +536,23 @@
       <window_info anchor="right" id="make" order="4" weight="0.32982457" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17572099" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17264852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48692152" weight="0.32682925" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49819234" visible="true" weight="0.38926828" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47586635" visible="true" weight="0.40456432" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49566832" weight="0.41908714" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297561" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49876237" weight="0.32883817" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963847" weight="0.3287805" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49814355" weight="0.32780084" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49564052" weight="0.24" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5043595" side_tool="true" weight="0.24" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.3287805" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.48490945" weight="0.4107317" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49319306" weight="0.3246888" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.19740099" side_tool="true" weight="0.3952282" />
+      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.49938118" weight="0.32780084" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.802599" weight="0.3952282" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -643,91 +633,8 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/old/rounding.c" />
-    <entry file="file://$PROJECT_DIR$/old/draw3d.c" />
-    <entry file="file://$PROJECT_DIR$/old/hooks.c" />
-    <entry file="file://$PROJECT_DIR$/old/raycasting.c" />
-    <entry file="file://$PROJECT_DIR$/old/draw_player.c" />
-    <entry file="file://$PROJECT_DIR$/old/map.c" />
-    <entry file="file://$PROJECT_DIR$/old/pars.c" />
-    <entry file="file://$PROJECT_DIR$/player.c" />
-    <entry file="file://$PROJECT_DIR$/libft/ft_split.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structure.txt" />
-    <entry file="file://$PROJECT_DIR$/libft/ft_lstadd_back.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="14" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_lstlast.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="21" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/libft.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="71" column="6" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_calloc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_bzero.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_memset.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_lstnew.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_isalnum.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_substr.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/ft_putnbr_fd.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_memccpy.c">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_atoi.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -737,41 +644,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rays_dda.c" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libft/get_next_line.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-304" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/player/hooks.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/player/player_movement.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sprite/sprite_drawing.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -780,20 +654,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/player/rays.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
     <entry file="file://$PROJECT_DIR$/texture/tex_utils.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16">
@@ -808,24 +669,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/map_parsing.c">
+    <entry file="file://$PROJECT_DIR$/minilibx_mms_20200219/mlx.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        <state relative-caret-position="425">
+          <caret line="109" column="2" lean-forward="true" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/sprite_parsing.c">
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx.h" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/font.c" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_int.h" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_png.c" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_png.h" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_rgb.c" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_xpm.c" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_mouse.m" />
+    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/Makefile" />
+    <entry file="file://$PROJECT_DIR$/libft/ft_lstnew.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+        <state relative-caret-position="330">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/path_parsing.c">
+    <entry file="file://$PROJECT_DIR$/libft/libft.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="596">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_config.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_lstadd_back.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_lstlast.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/get_next_line.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-356" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/player/player_movement.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_strchr.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/player/rays.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_substr.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/player/hooks.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="82" selection-start-line="25" selection-start-column="82" selection-end-line="25" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minilibx_mms_20200219/mlx_window.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7642" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/drawing_utils.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-227">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -836,90 +788,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/validation/errors.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/player_parsing.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/resolution_parsing.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/player/player_direction_init.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        <state relative-caret-position="438">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/texture/drawing_utils.c">
+    <entry file="file://$PROJECT_DIR$/libmlx.dylib.dSYM/Contents/Info.plist">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cub3d.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="343">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#938#963#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/validation/exit.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game_config.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/color_parsing.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="88" column="1" selection-start-line="58" selection-end-line="88" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maps/map.cub">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/validation/map_check.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1133">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        <state relative-caret-position="525">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="766">
+          <caret line="91" column="58" selection-start-line="91" selection-start-column="58" selection-end-line="91" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cub3d.h">
+    <entry file="file://$PROJECT_DIR$/validation/map_check.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
-          <folding>
-            <element signature="e#938#963#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1620">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/player_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/path_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/resolution_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/color_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/sprite_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libft/ft_strtrim.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/map_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/errors.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maps/map.cub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validation/map_check2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="59" column="15" lean-forward="true" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
         </state>
       </provider>
     </entry>

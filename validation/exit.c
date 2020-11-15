@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 14:27:51 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 14:48:53 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/14 22:21:26 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		destroy_images(t_all *all)
 }
 
 
-void free_all(t_all *all)
+int free_all(t_all *all)
 {
 	destroy_images(all);
 	if (all->map)
@@ -38,5 +38,7 @@ void free_all(t_all *all)
 		free(all->item->spr_ord);
 	if (all->item->spr_dist)
 		free(all->item->spr_dist);
-	exit(EXIT_FAILURE);
+	if(all->img->mlx_win)
+		mlx_destroy_window(all->img->mlx, all->img->mlx_win);
+	exit(0);
 }

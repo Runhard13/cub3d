@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 17:28:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/15 19:26:29 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define TEX_N 2
 # define TEX_W 3
 # define TEX_E 4
+# define CONFIG_CHR "RNESWFC"
 
 typedef struct	s_data
 {
@@ -183,10 +184,11 @@ void			tex_draw(t_all *all, int x, int drawStart, int drawEnd);
 void			rays_calc(t_all *all, int x);
 void 			preform_dda(t_all *all);
 void			step_calc(t_all *all);
-void			free_all(t_all *all);
+int				free_all(t_all *all);
 void			destroy_images(t_all *all);
 int				error(t_all *all, char *msg);
 int				open_fd(t_all *all, char *path);
 int 			validate_map(t_all *all);
+int				map_check(t_all *all);
 
 #endif
