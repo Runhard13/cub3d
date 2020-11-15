@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/15 19:56:52 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/15 20:03:45 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	map_check(t_all *all)
 	y = 0;
 	while (find_char(CONFIG_CHR, all->map[y][0]))
 		y++;
+	check_forbidden(all, y);
 	check_first_horizontal(all, y);
 	while (all->map[++y])
 		check_borders(all, y);

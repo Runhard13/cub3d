@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/15 19:26:29 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/15 20:29:54 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,5 +190,7 @@ int				error(t_all *all, char *msg);
 int				open_fd(t_all *all, char *path);
 int 			validate_map(t_all *all);
 int				map_check(t_all *all);
+int				check_forbidden(t_all *all, int y);
+int				find_char(const char *s, int c);
 
 #endif
