@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/15 20:29:54 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 00:08:24 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ typedef struct	s_texture
 
 typedef struct	s_spr
 {
-	int			x;
-	int			y;
 	int			sprite_count;
 	double		sprite_x;
 	double 		sprite_y;
@@ -125,6 +123,13 @@ typedef struct	s_spr
 
 }				t_spr;
 
+typedef struct	s_sprs
+{
+	double x;
+	double y;
+
+}				t_sprs;
+
 typedef struct	s_all
 {
 	t_data		*img;
@@ -144,6 +149,7 @@ typedef struct	s_all
 	t_texture	*tex;
 	double 		*zbuffer;
 	int 		screenshot;
+	t_sprs		*ss;
 }				t_all;
 
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);

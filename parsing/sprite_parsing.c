@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:28:11 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 17:31:20 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 00:08:24 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	parse_sprite(t_all *all)
 {
 	int x;
 	int y;
+	int i;
 
 	y = 0;
+	i = 0;
 	while (all->map[y])
 	{
 		x = 0;
@@ -26,10 +28,11 @@ void	parse_sprite(t_all *all)
 			if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
 										  all->map[y][0] == ' '))
 			{
-				all->item->x = x;
-				all->item->y = y;
+				all->ss[i].x = x + 0.5;
+				all->ss[i].y = y + 0.5;
 				all->item->sprite_count++;
 				x++;
+				i++;
 			}
 			else
 				x++;

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 19:34:33 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 00:03:41 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
     t_spr item;
     t_cast cast;
 	t_texture tex;
+	t_sprs sprs;
 
 	ft_memset(&img, 0, sizeof(t_data));
 	ft_memset(&plr, 0, sizeof(t_plr));
@@ -64,6 +65,7 @@ int	main(int argc, char **argv)
 	all.item = &item;
 	all.cast = &cast;
 	all.tex = &tex;
+	all.ss = &sprs;
 
     game_config(&all);
     validate_map (&all);
