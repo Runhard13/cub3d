@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 00:08:24 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,5 +198,7 @@ int 			validate_map(t_all *all);
 int				map_check(t_all *all);
 int				check_forbidden(t_all *all, int y);
 int				find_char(const char *s, int c);
+void			parse_sprite_count(t_all *all);
+int				create_buffers (t_all *all);
 
 #endif

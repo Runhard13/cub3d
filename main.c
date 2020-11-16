@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 00:03:41 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:26:58 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,8 @@ int	main(int argc, char **argv)
     game_config(&all);
     validate_map (&all);
 
-	if (!(all.item->spr_dist = malloc(sizeof(double) * all.item->sprite_count)))
-		return (error(&all, "Sprite_dist array allocation error"));
-	if (!(all.item->spr_ord = malloc(sizeof(int) * all.item->sprite_count)))
-		return (error(&all, "Sprite_ord array allocation error"));
-	ft_memset(all.item->spr_ord, 0, (sizeof(int) * all.item->sprite_count));
-	ft_memset(all.item->spr_dist, 0, (sizeof(int) * all.item->sprite_count));
-	if (!(all.zbuffer = malloc(sizeof(double) * all.w)))
-		return (error(&all, "ZBuffer allocation error"));
-	ft_memset(all.zbuffer, 0, sizeof(double) * all.w);
-
+    create_buffers(&all);
+    parse_sprite(&all);
 
     if(!(img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub")))
 		return (error(&all, "MLX can't create new window"));

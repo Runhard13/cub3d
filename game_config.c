@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:59:55 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 15:17:41 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int game_config (t_all *all)
 {
 	parse_player(all);
-	parse_sprite (all);
+	parse_sprite_count (all);
 	parse_resolution (all);
 	parse_path_tex(all);
 	parse_path_sprite(all);
