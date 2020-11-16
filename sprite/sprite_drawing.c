@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 19:30:25 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:25:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:46:23 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,26 +84,25 @@ void	find_sprite_h(t_all *all)
 	all->item->sprite_h = abs((int)(all->h / (all->item->transform_y)));
 }
 
-void	draw_sprite(t_all *all, int *spr_ord, double *spr_dist)
+void	draw_sprite(t_all *all)
 {
 	int i;
 
 	i = 0;
 	while (i < all->item->sprite_count)
 	{
-		spr_ord[i] = i;
-		spr_dist[i] = ((all->plr->posx - all->ss[i].x) *
+		all->ss[i].dist = ((all->plr->posx - all->ss[i].x) *
 				(all->plr->posx - all->ss[i].x) +
-				(all->plr->posy - all->ss[i].x) *
-				(all->plr->posy - all->ss[i].x));
+				(all->plr->posy - all->ss[i].y) *
+				(all->plr->posy - all->ss[i].y));
 		i++;
 	}
-	spr_sort(spr_ord, spr_dist, all->item->sprite_count);
+	spr_sort(all);
 	i = 0;
 	while (i < all->item->sprite_count)
 	{
-		all->item->sprite_x = all->ss[spr_ord[i]].x - all->plr->posx;
-		all->item->sprite_y = all->ss[spr_ord[i]].y - all->plr->posy;
+		all->item->sprite_x = all->ss[i].x - all->plr->posx;
+		all->item->sprite_y = all->ss[i].y - all->plr->posy;
 		find_sprite_h(all);
 		find_start_end(all);
 		drawing(all);

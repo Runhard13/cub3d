@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 18:36:29 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:25:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:43:00 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,26 @@ void	ft_dblswap(double *a, double *b)
 	*b = t;
 }
 
-void	spr_sort(int *order, double *distance, int number)
+void	spr_sort(t_all *all)
 {
-	int i;
-	int	j;
+	int			i;
+	int			j;
+	t_sprs	tmp;
 
-	i = 0;
-	j = 1;
-	while (i < number)
+	j = 0;
+	while (j < all->item->sprite_count - 1)
 	{
-		while (j < number)
+		i = 0;
+		while (i < all->item->sprite_count - j - 1)
 		{
-			if (distance[j] < distance[i])
+			if (all->ss[i].dist < all->ss[i + 1].dist)
 			{
-				ft_swap(&order[i], &order[j]);
-				ft_dblswap(&distance[i], &distance[j]);
+				tmp = all->ss[i];
+				all->ss[i] = all->ss[i + 1];
+				all->ss[i + 1] = tmp;
 			}
-			j++;
+			i++;
 		}
-		i++;
-		j = i;
+		j++;
 	}
 }

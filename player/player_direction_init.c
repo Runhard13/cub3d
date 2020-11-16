@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:32:27 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:25:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:38:28 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	player_north(t_all *all, int x, int y)
 {
-	if ((all->map[y + 2][x] == '0') || (all->map[y][x +2] == '0'))
-	{
-		all->plr->posx = x;
-		all->plr->posy = y;
-	}
-	else
-	{
-		all->plr->posx = x + 0.5;
-		all->plr->posy = y + 0.5;
-	}
+	//if ((all->map[y + 2][x] == '0') || (all->map[y][x +2] == '0'))
+	//{
+		all->plr->posx = x-1;
+		all->plr->posy = y-1;
+	//}
+	//else
+	//{
+	//	all->plr->posx = x + 0.5;
+	//	all->plr->posy = y + 0.5;
+	//}
 	all->plr->dirx = 0;
 	all->plr->diry = -1;
 	all->plr->planey = 0;

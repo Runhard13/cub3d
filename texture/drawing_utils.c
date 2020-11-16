@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:25:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ void	drawscreen(t_all *all)
 		tex_draw(all, x, draw_start, draw_end);
 		all->zbuffer[x] = all->cast->perp_wall_dist;
 	}
-	draw_sprite(all, all->item->spr_ord, all->item->spr_dist);
+	draw_sprite(all);
 	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
 }

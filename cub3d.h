@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:38:10 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ typedef struct	s_sprs
 {
 	double x;
 	double y;
+	double dist;
 
 }				t_sprs;
 
@@ -163,8 +164,8 @@ void			get_tex_data (t_all *all);
 int				get_color(t_tex *tex, int x, int y);
 int				wall_side(t_all *all);
 void			sky_floor(t_all *all);
-void			spr_sort(int *spr_ord, double *spr_dist, int number);
-void 			draw_sprite(t_all *all, int *spr_ord, double *spr_dist);
+void			spr_sort(t_all *all);
+void 			draw_sprite(t_all *all);
 int				parse_resolution(t_all *all);
 char			*line_allocation(char *map);
 int				parse_color_floor(t_all *all);
