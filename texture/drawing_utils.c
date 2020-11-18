@@ -66,7 +66,7 @@ void	drawscreen(t_all *all)
 			draw_start = 0;
 		draw_end = all->cast->line_h / 2 + all->h / 2;
 		if (draw_end >= all->h)
-			draw_end = all->h - 1;
+			draw_end = all->h - 2;
 		tex_draw(all, x, draw_start, draw_end);
 		all->zbuffer[x] = all->cast->perp_wall_dist;
 	}

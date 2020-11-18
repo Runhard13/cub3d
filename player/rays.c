@@ -23,8 +23,6 @@ void	rays_calc(t_all *all, int x)
 	all->cast->map_y = (int)(all->plr->posy);
 	all->cast->delta_x = fabs(1 / all->cast->raydirx);
 	all->cast->delta_y = fabs(1 / all->cast->raydiry);
-	//all->cast->delta_x = (all->cast->raydiry == 0) ? 0 : ((all->cast->raydirx == 0) ? 1 : fabs(1 / all->cast->raydirx));
-	//all->cast->delta_y = (all->cast->raydirx == 0) ? 0 : ((all->cast->raydiry == 0) ? 1 : fabs(1 / all->cast->raydiry));
 }
 
 void	step_calc(t_all *all)

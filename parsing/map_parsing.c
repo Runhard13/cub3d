@@ -47,6 +47,7 @@ char	**read_map(int fd)
 	}
 	ft_lstadd_back(&head, ft_lstnew(str));
 	amount++;
+
 	close(fd);
 	return (make_map(&head, amount));
 }

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:38:10 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/18 20:03:10 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define RIGHT 124
 # define Q 12
 # define E 14
-# define SPEED 0.5
-# define ROT 0.2
+# define SPEED 0.3
+# define ROT 0.1
 # define TEX_S 1
 # define TEX_N 2
 # define TEX_W 3
@@ -182,10 +182,7 @@ void			strafe_left(t_all *all);
 void			strafe_right(t_all *all);
 int				parse_path_tex(t_all *all);
 int				parse_path_sprite(t_all *all);
-void			player_north(t_all *all, int x, int y);
-void			player_south(t_all *all, int x, int y);
-void			player_west(t_all *all, int x, int y);
-void			player_east(t_all *all, int x, int y);
+void			player_init (t_all *all, int x, int y, char c);
 int				game_config(t_all *all);
 void			tex_draw(t_all *all, int x, int drawStart, int drawEnd);
 void			rays_calc(t_all *all, int x);
