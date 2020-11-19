@@ -6,31 +6,31 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 15:20:21 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/15 19:26:52 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 20:57:15 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	check_resolution(t_all *all)
+int		check_resolution(t_all *all)
 {
-	int		y;
+	int	y;
 	int i;
 
 	y = 0;
 	i = 0;
 	while (all->map[y])
 	{
-		if(all->map[y][0] == 'R')
+		if (all->map[y][0] == 'R')
 			i++;
 		y++;
 	}
 	return (i == 1 ? 1 : 0);
 }
 
-int	check_path_tex(t_all *all)
+int		check_path_tex(t_all *all)
 {
-	int		y;
+	int	y;
 	int i;
 
 	y = 0;
@@ -47,7 +47,7 @@ int	check_path_tex(t_all *all)
 	return (i == 4 ? 1 : 0);
 }
 
-int	check_starting_point(t_all *all)
+int		check_starting_point(t_all *all)
 {
 	int x;
 	int y;
@@ -60,53 +60,42 @@ int	check_starting_point(t_all *all)
 		x = 0;
 		while (all->map[y][x])
 		{
-			if (all->map[y][x] == 'N' && (all->map[y][x + 1] == '0' ||
-										  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
-				i++;
-			if (all->map[y][x] == 'W' && (all->map[y][x + 1] == '0' ||
-										  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
-				i++;
-			if (all->map[y][x] == 'S' && (all->map[y][x + 1] == '0' ||
-										  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
-				i++;
-			if (all->map[y][x] == 'E' && (all->map[y][x + 1] == '0' ||
-										  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+			if (starting_points(all, x, y))
 				i++;
 			x++;
 		}
 		y++;
 	}
-	return(i > 1 ? 0 : 1);
+	return (i > 1 ? 0 : 1);
 }
 
-int	check_floor_sky(t_all *all)
+int		check_floor_sky(t_all *all)
 {
-	int		y;
+	int	y;
 	int i;
 
 	y = 0;
 	i = 0;
 	while (all->map[y])
 	{
-		if(all->map[y][0] == 'C' || all->map[y][0] == 'F')
+		if (all->map[y][0] == 'C' || all->map[y][0] == 'F')
 			i++;
-	y++;
+		y++;
 	}
 	return (i == 2 ? 1 : 0);
 }
 
-int validate_map(t_all *all)
+int		validate_map(t_all *all)
 {
-	if(!(check_starting_point(all)))
+	if (!(check_starting_point(all)))
 		return (error(all, "More than 1 starting point"));
-	if(!(check_path_tex(all)))
+	if (!(check_path_tex(all)))
 		return (error(all, "Invalid texture config in map"));
-	if(!(check_floor_sky(all)))
+	if (!(check_floor_sky(all)))
 		return (error(all, "Invalid floor or sky color"));
-	if(!(check_resolution(all)))
+	if (!(check_resolution(all)))
 		return (error(all, "Invalid resolution"));
-	if(!(map_check(all)))
+	if (!(map_check(all)))
 		return (error(all, "Invalid map"));
-
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/18 23:42:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 20:42:55 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		find_char(const char *s, int c)
 	return (0);
 }
 
-int			check_first_horizontal(t_all *all, int y)
+int		check_first_horizontal(t_all *all, int y)
 {
 	int x;
 
@@ -33,14 +33,14 @@ int			check_first_horizontal(t_all *all, int y)
 	while (all->map[y][x])
 	{
 		if (!((all->map[y][x] == '1' || all->map[y][x] == ' ')))
-			if(all->map[y + 1][x])
-				return(error(all, "Unclosed map"));
+			if (all->map[y + 1][x])
+				return (error(all, "Unclosed map"));
 		x++;
 	}
 	return (1);
 }
 
-int			check_last_horizontal(t_all *all, int y)
+int		check_last_horizontal(t_all *all, int y)
 {
 	int x;
 
@@ -48,34 +48,34 @@ int			check_last_horizontal(t_all *all, int y)
 	while (all->map[y][x])
 	{
 		if (!((all->map[y][x] == '1' || all->map[y][x] == ' ')))
-			if(all->map[y - 1][x])
-				return(error(all, "Unclosed map"));
+			if (all->map[y - 1][x])
+				return (error(all, "Unclosed map"));
 		x++;
 	}
 	return (1);
 }
 
-int			check_borders(t_all *all, int y)
+int		check_borders(t_all *all, int y)
 {
 	char *line;
 	char *tmp;
 	char *another_tmp;
 
-	if(!(line = line_allocation(all->map[y])))
-		return(error(all, "Malloc error during line allocation"));
+	if (!(line = line_allocation(all->map[y])))
+		return (error(all, "Malloc error during line allocation"));
 	tmp = line;
 	another_tmp = ft_strtrim(line, " ");
 	if (!(line[0] == '1' && line[ft_strlen(line) - 1] == '1'))
 	{
 		free(tmp);
-		return(error(all, "Unclosed map"));
+		return (error(all, "Unclosed map"));
 	}
 	free(tmp);
 	free(another_tmp);
 	return (1);
 }
 
-int	map_check(t_all *all)
+int		map_check(t_all *all)
 {
 	int y;
 

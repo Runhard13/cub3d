@@ -26,8 +26,7 @@ void		destroy_images(t_all *all)
 		mlx_destroy_image(all->img->mlx, all->sprite->tex_img);
 }
 
-
-int free_all(t_all *all)
+int			free_all(t_all *all)
 {
 	destroy_images(all);
 	if (all->map)
@@ -38,7 +37,7 @@ int free_all(t_all *all)
 		free(all->item->spr_ord);
 	if (all->item->spr_dist)
 		free(all->item->spr_dist);
-	if(all->img->mlx_win)
+	if (all->img->mlx_win)
 		mlx_destroy_window(all->img->mlx, all->img->mlx_win);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 21:59:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 20:39:18 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_length + x * (data->bpp / 8));
 	*(unsigned int*)dst = color;
+}
+
+void	screenshot(t_all *all)
+{
+	if (all->screenshot == 1)
+	{
+		save_screenshot(all);
+		all->screenshot = 0;
+	}
 }
 
 void	sky_floor(t_all *all)
@@ -44,6 +53,17 @@ void	sky_floor(t_all *all)
 	}
 }
 
+void	side_calcs(t_all *all)
+{
+	if (all->cast->side == 0)
+		all->cast->perp_wall_dist = (all->cast->map_x - all->plr->posx +
+				(1 - all->cast->step_x) / 2.0) / all->cast->raydirx;
+	else
+		all->cast->perp_wall_dist = (all->cast->map_y - all->plr->posy +
+				(1 - all->cast->step_y) / 2.0) / all->cast->raydiry;
+	all->cast->line_h = (int)(all->h / all->cast->perp_wall_dist);
+}
+
 void	drawscreen(t_all *all)
 {
 	int		x;
@@ -55,12 +75,8 @@ void	drawscreen(t_all *all)
 	{
 		rays_calc(all, x);
 		step_calc(all);
-		preform_dda (all);
-		if (all->cast->side == 0)
-			all->cast->perp_wall_dist = (all->cast->map_x - all->plr->posx + (1 - all->cast->step_x) / 2.0) / all->cast->raydirx;
-		else
-			all->cast->perp_wall_dist = (all->cast->map_y - all->plr->posy + (1 - all->cast->step_y) / 2.0) / all->cast->raydiry;
-		all->cast->line_h = (int)(all->h / all->cast->perp_wall_dist);
+		preform_dda(all);
+		side_calcs(all);
 		draw_start = -all->cast->line_h / 2 + all->h / 2;
 		if (draw_start < 0)
 			draw_start = 0;
@@ -72,9 +88,5 @@ void	drawscreen(t_all *all)
 	}
 	draw_sprite(all);
 	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
-	if(all->screenshot == 1)
-	{
-		save_screenshot(all);
-		all->screenshot = 0;
-	}
+	screenshot(all);
 }

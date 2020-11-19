@@ -6,13 +6,13 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 09:44:53 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/13 17:55:43 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 20:31:58 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void rot_right (t_all *all)
+void	rot_right(t_all *all)
 {
 	double olddirx;
 	double oldplanex;
@@ -21,11 +21,12 @@ void rot_right (t_all *all)
 	all->plr->dirx = all->plr->dirx * cos(-ROT) - all->plr->diry * sin(-ROT);
 	all->plr->diry = olddirx * sin(-ROT) + all->plr->diry * cos(-ROT);
 	oldplanex = all->plr->planex;
-	all->plr->planex = all->plr->planex * cos(-ROT) - all->plr->planey * sin(-ROT);
+	all->plr->planex = all->plr->planex *
+			cos(-ROT) - all->plr->planey * sin(-ROT);
 	all->plr->planey = oldplanex * sin(-ROT) + all->plr->planey * cos(-ROT);
 }
 
-void rot_left (t_all *all)
+void	rot_left(t_all *all)
 {
 	double olddirx;
 	double oldplanex;
@@ -34,11 +35,12 @@ void rot_left (t_all *all)
 	all->plr->dirx = all->plr->dirx * cos(ROT) - all->plr->diry * sin(ROT);
 	all->plr->diry = olddirx * sin(ROT) + all->plr->diry * cos(ROT);
 	oldplanex = all->plr->planex;
-	all->plr->planex = all->plr->planex * cos(ROT) - all->plr->planey * sin(ROT);
+	all->plr->planex = all->plr->planex *
+			cos(ROT) - all->plr->planey * sin(ROT);
 	all->plr->planey = oldplanex * sin(ROT) + all->plr->planey * cos(ROT);
 }
 
-int	key_press(int keycode, t_all *all)
+int		key_press(int keycode, t_all *all)
 {
 	mlx_clear_window(all->img->mlx, all->img->mlx_win);
 	if (keycode == W || keycode == UP)

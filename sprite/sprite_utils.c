@@ -14,8 +14,8 @@
 
 void	spr_sort(t_all *all)
 {
-	int			i;
-	int			j;
+	int		i;
+	int		j;
 	t_sprs	tmp;
 
 	j = 0;
