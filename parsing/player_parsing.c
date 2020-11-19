@@ -31,7 +31,7 @@ void	parse_player(t_all *all)
 	}
 }
 
-void player_init (t_all *all, int x, int y, char c)
+void	player_init (t_all *all, int x, int y, char c)
 {
 	if (c == 'N' || c == 'S')
 	{
