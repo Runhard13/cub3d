@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 20:23:35 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 13:45:49 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ char	**make_map(t_list **head, size_t size)
 	i = -1;
 	while (tmp)
 	{
-		map[++i] = tmp->content;
+		map[++i] = ft_strdup(tmp->content);
 		tmp = tmp->next;
 	}
+	ft_lstclear(head, &free);
 	return (map);
 }
 
@@ -36,8 +37,8 @@ char	**read_map(int fd)
 	t_list	*head;
 	size_t	amount;
 
-	str = 0;
-	head = 0;
+	str = NULL;
+	head = NULL;
 	amount = 0;
 	while (get_next_line(fd, &str))
 	{
@@ -47,7 +48,6 @@ char	**read_map(int fd)
 	}
 	ft_lstadd_back(&head, ft_lstnew(str));
 	amount++;
-
 	close(fd);
 	return (make_map(&head, amount));
 }

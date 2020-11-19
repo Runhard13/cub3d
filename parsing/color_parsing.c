@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:11:22 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/14 16:51:00 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/18 22:49:15 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	parse_color_floor(t_all *all)
 {
 	int		y;
 	char	*line;
+	char 	*tmp;
 	int		r;
 	int		g;
 	int		b;
@@ -39,6 +40,7 @@ int	parse_color_floor(t_all *all)
 		{
 			if(!(line = line_allocation(all->map[y])))
 				return(error(all, "Malloc error during floor color parsing"));
+			tmp = line;
 			line += 1;
 			r = cub_atoi(line);
 			while (*line && (*line == ' ' || *line == ','))
@@ -50,6 +52,7 @@ int	parse_color_floor(t_all *all)
 			if (!(check_color(r, g, b)))
 				return(error(all, "Invalid floor color"));
 			all->floor_color = create_trgb(0, r, g, b);
+			free(tmp);
 		}
 		y++;
 	}
@@ -60,6 +63,7 @@ int	parse_color_sky(t_all *all)
 {
 	int		y;
 	char	*line;
+	char 	*tmp;
 	int		r;
 	int		g;
 	int		b;
@@ -71,6 +75,7 @@ int	parse_color_sky(t_all *all)
 		{
 			if(!(line = line_allocation(all->map[y])))
 				return(error(all, "Malloc error during sky color parsing"));
+			tmp = line;
 			line += 1;
 			r = cub_atoi(line);
 			while (*line && (*line == ' ' || *line == ','))
@@ -82,6 +87,7 @@ int	parse_color_sky(t_all *all)
 			if (!(check_color(r, g, b)))
 				return(error(all, "Invalid sky color"));
 			all->sky_color = create_trgb(0, r, g, b);
+			free(tmp);
 		}
 		y++;
 	}
