@@ -13,16 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="92d18612-0d59-452a-910a-0aff1f864d48" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strtrim.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strtrim.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/map.cub" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.cub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/color_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/color_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/map_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/map_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/path_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/path_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/resolution_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/resolution_parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprite/sprite_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/sprite/sprite_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validation/map_check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/validation/map_check2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cub3d.h" beforeDir="false" afterPath="$PROJECT_DIR$/cub3d.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/texture/drawing_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/texture/drawing_utils.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +29,7 @@
     <session id="63022141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="52" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.0" value="28" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
@@ -49,38 +42,42 @@
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="54" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="25" />
-          <entry key="c" value="648" />
+          <entry key="bmp" value="10" />
+          <entry key="c" value="658" />
           <entry key="cub" value="67" />
           <entry key="gitignore" value="4" />
-          <entry key="h" value="86" />
+          <entry key="h" value="89" />
           <entry key="m" value="2" />
           <entry key="plist" value="1" />
           <entry key="swift" value="1" />
           <entry key="txt" value="24" />
+          <entry key="xpm" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CMakeLists.txt" value="14" />
+          <entry key="Image" value="11" />
           <entry key="Makefile" value="25" />
-          <entry key="ObjectiveC" value="737" />
+          <entry key="ObjectiveC" value="750" />
           <entry key="PLAIN_TEXT" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="367" />
-          <entry key="c" value="22039" />
+          <entry key="c" value="23324" />
           <entry key="cub" value="1057" />
           <entry key="gitignore" value="23" />
-          <entry key="h" value="2857" />
+          <entry key="h" value="3277" />
           <entry key="m" value="3" />
           <entry key="txt" value="1137" />
         </counts>
@@ -89,7 +86,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="175" />
           <entry key="Makefile" value="367" />
-          <entry key="ObjectiveC" value="24899" />
+          <entry key="ObjectiveC" value="26604" />
           <entry key="PLAIN_TEXT" value="2042" />
         </counts>
       </usages-collector>
@@ -104,22 +101,53 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/parsing/map_parsing.c">
+        <entry file="file://$PROJECT_DIR$/screenshot.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="228">
+              <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libft/ft_split.c">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/texture/drawing_utils.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libft/ft_lstclear.c">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="865">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game_config.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cub3d.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-537">
+              <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pics/AnyConv.com__barrel.xpm">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -183,7 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/player.c" />
         <option value="$PROJECT_DIR$/structure.txt" />
         <option value="$PROJECT_DIR$/libft/ft_atoi.c" />
         <option value="$PROJECT_DIR$/libft/Makefile" />
@@ -221,9 +248,7 @@
         <option value="$PROJECT_DIR$/sprite/sprite_drawing.c" />
         <option value="$PROJECT_DIR$/create_buffer.c" />
         <option value="$PROJECT_DIR$/player/rays.c" />
-        <option value="$PROJECT_DIR$/texture/drawing_utils.c" />
         <option value="$PROJECT_DIR$/player/player_direction_init.c" />
-        <option value="$PROJECT_DIR$/cub3d.h" />
         <option value="$PROJECT_DIR$/parsing/player_parsing.c" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/sprite/sprite_utils.c" />
@@ -234,6 +259,9 @@
         <option value="$PROJECT_DIR$/libft/ft_strtrim.c" />
         <option value="$PROJECT_DIR$/parsing/path_parsing.c" />
         <option value="$PROJECT_DIR$/parsing/map_parsing.c" />
+        <option value="$PROJECT_DIR$/texture/drawing_utils.c" />
+        <option value="$PROJECT_DIR$/cub3d.h" />
+        <option value="$PROJECT_DIR$/screenshot.c" />
       </list>
     </option>
   </component>
@@ -244,8 +272,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1275" />
-    <option name="y" value="220" />
+    <option name="x" value="1232" />
+    <option name="y" value="84" />
     <option name="width" value="1191" />
     <option name="height" value="1056" />
   </component>
@@ -257,7 +285,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,17 +295,13 @@
             <path>
               <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
               <item name="cub3d" type="462c0819:PsiDirectoryNode" />
-              <item name="libft" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cub3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cub3d" type="462c0819:PsiDirectoryNode" />
-              <item name="parsing" type="462c0819:PsiDirectoryNode" />
+              <item name="texture" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,7 +337,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cub3d" type="CMakeRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" PROGRAM_PARAMS="$PROJECT_DIR$/maps/map.cub" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cub3d" TARGET_NAME="cub3d" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cub3d" RUN_TARGET_NAME="cub3d">
+    <configuration name="cub3d" type="CMakeRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" PROGRAM_PARAMS="$PROJECT_DIR$/maps/map.cub --save" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cub3d" TARGET_NAME="cub3d" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cub3d" RUN_TARGET_NAME="cub3d">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -387,7 +410,8 @@
       <workItem from="1605729811881" duration="3411000" />
       <workItem from="1605733387276" duration="192000" />
       <workItem from="1605777263416" duration="3986000" />
-      <workItem from="1605781312582" duration="1727000" />
+      <workItem from="1605781312582" duration="2600000" />
+      <workItem from="1605788189705" duration="9944000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1604428154215</created>
@@ -484,7 +508,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270927000" />
+    <option name="totallyTimeSpent" value="281744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,10 +520,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1275" y="220" width="1191" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="1232" y="84" width="1191" height="1056" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.281114" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28546563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -620,15 +643,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
-    <entry file="file://$PROJECT_DIR$/minilibx_mms_20200219/mlx.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="109" column="2" lean-forward="true" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx.h" />
     <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/font.c" />
     <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_int.h" />
     <entry file="file://$PROJECT_DIR$/minilibx_opengl_20191021/mlx_png.c" />
@@ -712,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/texture/drawing_utils.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/player/player_direction_init.c" />
     <entry file="file://$PROJECT_DIR$/player/player_movement.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -769,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cub3d.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="158" column="18" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parsing/sprite_parsing.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -815,20 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game_config.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -874,16 +860,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parsing/map_parsing.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_lstclear.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/libft/ft_split.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsing/map_parsing.c">
+    <entry file="file://$PROJECT_DIR$/pics/AnyConv.com__barrel.xpm">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_config.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state relative-caret-position="285">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cub3d.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-537">
+          <caret line="164" column="21" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshot.bmp">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/texture/drawing_utils.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="865">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshot.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
         </state>
       </provider>
     </entry>

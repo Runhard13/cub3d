@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/18 20:03:10 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 17:41:56 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,34 @@ typedef struct	s_sprs
 
 }				t_sprs;
 
+typedef long DWORD;//4 байта
+typedef short WORD;//2 байта
+
+typedef struct s_bmp_file_header
+{
+	WORD type; // ‘BM’ 0x4D42
+	DWORD size; // Размер файла в байтах, BitCount*Height*Width+ OffsetBits
+	WORD reserved1; // Зарезервирован; должен быть нуль
+	WORD reserved2; // Зарезервирован; должен быть нуль
+	DWORD offset; // Смещение данных от начала файла в байтах// = sizeof(BITMAPFILEHEADER)+sizeof(BITMAPINFOHEADER)
+} t_bmp_file_header;
+
+typedef struct s_bmp_info_header
+{
+	DWORD size; // Число байтов необходимое для структуры = 40
+	DWORD width; // Ширина точечного рисунка в пикселях
+	DWORD height; // Высота точечного рисунка в пикселях
+	WORD planes; // Число плоскостей целевого устройства = 1
+	WORD bpp; // Глубина цвета, число бит на точку = 0,1,4,8,16,24,32
+	DWORD compression; // Тип сжатия = 0 для несжатого изображения
+	DWORD size_image; // Размер изображения в байтах BitCount*Height*Width
+	DWORD x_ppm; // Разрешающая способность по горизонтали
+	DWORD y_ppm; // Разрешающая способность по вертикали
+	DWORD color_used; // Число индексов используемых цветов. Если все цвета = 0
+	DWORD color_important; // Число необходимых цветов = 0
+} t_bmp_info_header;
+
+
 typedef struct	s_all
 {
 	t_data		*img;
@@ -198,5 +226,6 @@ int				check_forbidden(t_all *all, int y);
 int				find_char(const char *s, int c);
 void			parse_sprite_count(t_all *all);
 int				create_buffers (t_all *all);
+int				save_screenshot(t_all *all);
 
 #endif

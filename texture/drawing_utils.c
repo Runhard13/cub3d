@@ -72,4 +72,9 @@ void	drawscreen(t_all *all)
 	}
 	draw_sprite(all);
 	mlx_put_image_to_window(all->img, all->img->mlx_win, all->img->img, 0, 0);
+	if(all->screenshot == 1)
+	{
+		save_screenshot(all);
+		all->screenshot = 0;
+	}
 }
