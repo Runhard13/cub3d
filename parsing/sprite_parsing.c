@@ -26,7 +26,7 @@ void	parse_sprite(t_all *all)
 		while (all->map[y][x])
 		{
 			if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
-										  all->map[y][0] == ' '))
+				all->map[y][0] == ' '))
 			{
 				all->ss[i].x = x + 0.5;
 				all->ss[i].y = y + 0.5;
@@ -55,7 +55,7 @@ void	parse_sprite_count(t_all *all)
 		while (all->map[y][x])
 		{
 			if (all->map[y][x] == '2' && (all->map[y][0] == '1' ||
-										  all->map[y][0] == ' '))
+				all->map[y][0] == ' '))
 			{
 				all->item->sprite_count++;
 				x++;

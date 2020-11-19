@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/19 17:41:56 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 19:09:24 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,32 +131,33 @@ typedef struct	s_sprs
 
 }				t_sprs;
 
-typedef long DWORD;//4 байта
-typedef short WORD;//2 байта
-
-typedef struct s_bmp_file_header
+typedef struct s_bitmap
 {
-	WORD type; // ‘BM’ 0x4D42
-	DWORD size; // Размер файла в байтах, BitCount*Height*Width+ OffsetBits
-	WORD reserved1; // Зарезервирован; должен быть нуль
-	WORD reserved2; // Зарезервирован; должен быть нуль
-	DWORD offset; // Смещение данных от начала файла в байтах// = sizeof(BITMAPFILEHEADER)+sizeof(BITMAPINFOHEADER)
-} t_bmp_file_header;
+	unsigned int 		file_size;
+	u_int16_t			reserved1;
+	u_int16_t			reserved2;
+	unsigned int		pixel_data_offset;
 
-typedef struct s_bmp_info_header
+	unsigned int		header_size;
+	signed int			width;
+	signed int			height;
+	u_int16_t 			plane;
+	u_int16_t 			bpp;
+	unsigned int		compression;
+	unsigned int		image_size;
+	signed int			x_ppm;
+	signed int 			y_ppm;
+	unsigned int		total_colors;
+	unsigned int		important_colors;
+
+} t_bitmap;
+
+typedef struct s_rgb
 {
-	DWORD size; // Число байтов необходимое для структуры = 40
-	DWORD width; // Ширина точечного рисунка в пикселях
-	DWORD height; // Высота точечного рисунка в пикселях
-	WORD planes; // Число плоскостей целевого устройства = 1
-	WORD bpp; // Глубина цвета, число бит на точку = 0,1,4,8,16,24,32
-	DWORD compression; // Тип сжатия = 0 для несжатого изображения
-	DWORD size_image; // Размер изображения в байтах BitCount*Height*Width
-	DWORD x_ppm; // Разрешающая способность по горизонтали
-	DWORD y_ppm; // Разрешающая способность по вертикали
-	DWORD color_used; // Число индексов используемых цветов. Если все цвета = 0
-	DWORD color_important; // Число необходимых цветов = 0
-} t_bmp_info_header;
+	int			r;
+	int 		g;
+	int 		b;
+}			t_rgb;
 
 
 typedef struct	s_all
@@ -179,6 +180,7 @@ typedef struct	s_all
 	double 		*zbuffer;
 	int 		screenshot;
 	t_sprs		*ss;
+	t_rgb		*rgb;
 }				t_all;
 
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);

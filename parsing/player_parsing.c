@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 14:37:10 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/18 21:01:04 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 19:41:52 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	parse_player(t_all *all)
 		x = 0;
 		while (all->map[y][x])
 		{
-			if (find_char("NSEW", all->map[y][x]) && (all->map[y][x + 1] == '0' || all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+			if (find_char("NSEW", all->map[y][x]) && (all->map[y][x + 1] ==
+				'0' || all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
 				player_init(all, x, y, all->map[y][x]);
 			x++;
 		}
@@ -31,7 +32,7 @@ void	parse_player(t_all *all)
 	}
 }
 
-void	player_init (t_all *all, int x, int y, char c)
+void	player_init(t_all *all, int x, int y, char c)
 {
 	if (c == 'N' || c == 'S')
 	{
@@ -40,7 +41,6 @@ void	player_init (t_all *all, int x, int y, char c)
 		all->plr->planey = 0;
 		all->plr->planex = (c == 'N') ? 0.66 : -0.66;
 	}
-
 	if (c == 'E' || c == 'W')
 	{
 		all->plr->dirx = (c == 'E') ? 1 : -1;

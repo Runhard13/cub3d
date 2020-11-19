@@ -18,7 +18,7 @@ char	**make_map(t_list **head, size_t size)
 	int		i;
 	t_list	*tmp;
 
-	if(!(map = ft_calloc(size + 1, sizeof(char *))))
+	if (!(map = ft_calloc(size + 1, sizeof(char *))))
 		return (NULL);
 	tmp = *head;
 	i = -1;

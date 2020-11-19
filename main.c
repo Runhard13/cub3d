@@ -38,8 +38,10 @@ int	main(int argc, char **argv)
     t_cast cast;
 	t_texture tex;
 	t_sprs sprs;
+	t_rgb rgb;
 
 	ft_memset(&img, 0, sizeof(t_data));
+	ft_memset(&rgb, 0, sizeof(t_rgb));
 	ft_memset(&plr, 0, sizeof(t_plr));
 	ft_memset(&north, 0, sizeof(t_tex));
 	ft_memset(&south, 0, sizeof(t_tex));
@@ -66,6 +68,7 @@ int	main(int argc, char **argv)
 	all.cast = &cast;
 	all.tex = &tex;
 	all.ss = &sprs;
+	all.rgb = &rgb;
 
     game_config(&all);
     validate_map (&all);

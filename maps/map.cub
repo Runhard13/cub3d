@@ -1,4 +1,4 @@
-R 640 480
+R 640                 480
 
 NO ./pics/AnyConv.com__redbrick.xpm
 SO ./pics/AnyConv.com__bluestone.xpm
@@ -7,7 +7,7 @@ EA ./pics/AnyConv.com__wood.xpm
 S  ./pics/AnyConv.com__barrel.xpm
 
 F 50, 0, 0
-C 32, 100, 100
+C 200, 100, 100
 
         111111111111111111111111
 111111110000000000000001
