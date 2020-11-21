@@ -34,7 +34,7 @@ MLX_LNK	= -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INC)
 
 ${NAME}: $(OBJS) ft mlx
-	${CC} ${CFLAGS} ${INC} ${OBJS} ${LIBS} -o ${NAME}
+	$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBS) -o $(NAME)
 
 mlx:
 	make -C $(MLX_DIR)
