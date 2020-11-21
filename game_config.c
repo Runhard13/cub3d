@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:59:55 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:26:01 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/21 20:01:43 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ int game_config (t_all *all)
 		return(error(all, "Textures loading error"));
 	get_tex_data(all);
 	return (1);
+}
+
+int struct_init (t_all *all)
+{
+	all->plr = ft_calloc(1, sizeof(t_plr));
 }

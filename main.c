@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/16 21:26:58 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/21 20:05:40 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	main(int argc, char **argv)
 	char	*path;
 
 	t_all all;
+	t_data img;
 	ft_memset(&all, 0, sizeof(t_all));
+	ft_memset(&img, 0, sizeof(t_data));
 
 	if (argc > 3 || argc == 1)
 		return (error(&all, "Wrong number of arguments"));
@@ -27,8 +29,8 @@ int	main(int argc, char **argv)
 	path = argv[1];
 	fd = open_fd(&all, path);
 
-	t_data img;
-    t_plr plr;
+
+    //t_plr plr;
     t_tex north;
     t_tex south;
     t_tex west;
@@ -40,9 +42,9 @@ int	main(int argc, char **argv)
 	t_sprs sprs;
 	t_rgb rgb;
 
-	ft_memset(&img, 0, sizeof(t_data));
+
 	ft_memset(&rgb, 0, sizeof(t_rgb));
-	ft_memset(&plr, 0, sizeof(t_plr));
+
 	ft_memset(&north, 0, sizeof(t_tex));
 	ft_memset(&south, 0, sizeof(t_tex));
 	ft_memset(&west, 0, sizeof(t_tex));
@@ -52,12 +54,12 @@ int	main(int argc, char **argv)
 	ft_memset(&cast, 0, sizeof(t_cast));
 	ft_memset(&tex, 0, sizeof(t_texture));
 
-
+	struct_init(&all);
 	if(!(img.mlx = mlx_init()))
 		return (error(&all, "MLX can't init"));
 
 	all.map = read_map(fd);
-	all.plr = &plr;
+	//all.plr = &plr;
 	all.img = &img;
 	all.north = &north;
 	all.west = &west;

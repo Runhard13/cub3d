@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/19 21:08:10 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/19 23:33:27 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,5 +228,6 @@ void				parse_sprite_count(t_all *all);
 int					create_buffers (t_all *all);
 int					save_screenshot(t_all *all);
 int					starting_points(t_all *all, int x, int y);
+int					struct_init (t_all *all);
 
 #endif
