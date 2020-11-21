@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/19 23:33:27 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/21 20:39:38 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ void				strafe_right(t_all *all);
 int					parse_path_tex(t_all *all);
 int					parse_path_sprite(t_all *all);
 void				player_init (t_all *all, int x, int y, char c);
-int					game_config(t_all *all);
+int					parse_all_data(t_all *all);
 void				tex_draw(t_all *all, int x, int draw_start, int draw_end);
 void				rays_calc(t_all *all, int x);
 void				preform_dda(t_all *all);
@@ -228,6 +228,10 @@ void				parse_sprite_count(t_all *all);
 int					create_buffers (t_all *all);
 int					save_screenshot(t_all *all);
 int					starting_points(t_all *all, int x, int y);
-int					struct_init (t_all *all);
+int					struct_init(t_all *all);
+int					struct_init2(t_all *all);
+int					check_args (t_all *all, int argc, char **argv);
+int					init_params(t_all *all);
+void				draw_all(t_all *all);
 
 #endif
