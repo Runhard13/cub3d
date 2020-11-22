@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 19:51:24 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 21:13:06 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,61 +26,51 @@ int		find_char(const char *s, int c)
 	return (0);
 }
 
-int		check_first_horizontal(t_all *all, int y)
+int		check_horizontal(t_all *all, int y)
 {
 	int x;
-	int pos;
-	int len;
-	int len_prev;
 
-	len_prev = 0;
 	while (all->map[y])
 	{
-		//len = find_len_x(all, y);
-		//if (len > len_prev)
-		//	x = len_prev;
-		//else
 		x = 0;
 		while (all->map[y][x])
 		{
 			if (all->map[y][x] == '1')
-			{
 				x++;
-			}
 			else if (all->map[y][x] == ' ')
-			{
-				pos = y;
-				while (all->map[pos][x] == ' ' && pos < all->y_map_max)
-					pos++;
-				if (all->map[pos][x] == '1')
-					x++;
-				if (pos == all->y_map_max)
-					x++;
-				else
-					return(error(all, "Unclosed map"));
-			}
+				x = if_space(all, x, y);
 			else if (ft_strchr(NOTWALL, all->map[y][x]))
 			{
-				pos = y;
-				while ((ft_strchr(NOTWALL, all->map[pos][x]) && pos < all->y_map_max))
-					pos++;
-				if (all->map[pos][x] == '1')
-					x++;
-				else
-					return(error(all, "Unclosed map"));
+				x = if_notwall(all, x, y);
 			}
 		}
 		y++;
-		//len_prev = len;
-
-
-
 	}
 	return (0);
 }
 
-int		check_last_horizontal(t_all *all, int y)
+int		check_horizontal_back(t_all *all, int y)
 {
+	int x;
+	int y_start;
+
+	y_start = all->y_map_max;
+	while (y_start > y)
+	{
+		x = 0;
+		while (all->map[y_start][x])
+		{
+			if (all->map[y_start][x] == '1')
+				x++;
+			else if (all->map[y_start][x] == ' ')
+				x = if_space_back(all, x, y, y_start);
+			else if (ft_strchr(NOTWALL, all->map[y_start][x]))
+			{
+				x = if_notwall_back(all, x, y, y_start);
+			}
+		}
+		y_start--;
+	}
 	return (0);
 }
 
@@ -104,6 +94,28 @@ int		check_borders(t_all *all, int y)
 	return (1);
 }
 
+int check_left( t_all *all, int y)
+{
+	int x;
+
+	x = 0;
+	while (x <= all->x_map_min)
+	{
+		while (all->map[y])
+		{
+			if (all->map[y][x] == '1')
+				y++;
+			else if (all->map[y][x] == ' ')
+				y = if_space_left(all, x, y);
+			else if (ft_strchr(NOTWALL, all->map[y][x]))
+				y = if_notwall_left(all, x, y);
+		}
+		x++;
+	}
+	return (0);
+}
+
+
 int		map_check(t_all *all)
 {
 	int y;
@@ -111,11 +123,11 @@ int		map_check(t_all *all)
 	y = 0;
 	while (find_char(CONFIG_CHR, all->map[y][0]))
 		y++;
-	find_map_max (all, y);
+	find_map_max(all, y);
 	check_forbidden(all, y);
-	check_first_horizontal(all, y);
-	while (all->map[++y])
-		check_borders(all, y);
-	check_last_horizontal(all, y - 1);
+	check_horizontal(all, y);
+	check_horizontal_back(all, y);
+	//while (all->map[++y])
+	//	check_borders(all, y);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 20:23:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 19:08:57 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 20:40:00 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ int		starting_points(t_all *all, int x, int y)
 
 void find_map_max (t_all *all, int y)
 {
-	size_t x;
-	size_t x_max;
+	int x;
+	int x_max;
+	int x_min;
 
 	x = 0;
 	x_max = 0;
+	x_min = 1000;
 	while (all->map[y])
 	{
 		while (all->map[y][x])
@@ -62,19 +64,27 @@ void find_map_max (t_all *all, int y)
 		}
 		if (x_max < x)
 			x_max = x;
+		if (x_min > x)
+			x_min = x;
 		x = 0;
 		y++;
 	}
 	all->x_map_max = x_max;
 	all->y_map_max = y - 1;
+	all->x_map_min = x_min;
 }
 
-int find_len_x (t_all *all, int y)
+int if_notwall_left(t_all *all, int x, int y)
 {
-	int x;
+	int y_ret;
 
-	x = 0;
-		while (all->map[y][x])
-			x++;
-	return (x);
+	y_ret = y;
+	while ((ft_strchr(NOTWALL, all->map[y][x])
+			&& y < all->y_map_max))
+		y++;
+	if (all->map[y][x] == '1')
+		y_ret++;
+	else
+		return (error(all, "Unclosed map"));
+	return (y_ret);
 }
