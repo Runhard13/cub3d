@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 21:13:06 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 23:40:14 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,13 @@ int		check_borders(t_all *all, int y)
 int check_left( t_all *all, int y)
 {
 	int x;
+	int y_start;
 
 	x = 0;
+	y_start = y;
 	while (x <= all->x_map_min)
 	{
-		while (all->map[y])
+		while (y < all->y_map_max - 1)
 		{
 			if (all->map[y][x] == '1')
 				y++;
@@ -111,7 +113,10 @@ int check_left( t_all *all, int y)
 				y = if_notwall_left(all, x, y);
 		}
 		x++;
+		y = y_start;
 	}
+	y = y_start;
+	extra_len_check(all, y);
 	return (0);
 }
 
@@ -127,6 +132,7 @@ int		map_check(t_all *all)
 	check_forbidden(all, y);
 	check_horizontal(all, y);
 	check_horizontal_back(all, y);
+	check_left(all, y);
 	//while (all->map[++y])
 	//	check_borders(all, y);
 	return (1);

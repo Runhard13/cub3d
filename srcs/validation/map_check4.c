@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 14:49:51 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 20:48:10 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 21:36:26 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ int if_space_left(t_all *all, int x, int y)
 	else if (y == all->y_map_max)
 		y_ret++;
 	else
-		return (error(all, "Unclosed map"));
+		return (error(all, "Unclosed map left"));
 	return (y_ret);
 }

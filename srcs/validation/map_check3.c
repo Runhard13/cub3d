@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 20:23:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 20:40:00 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 22:37:01 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int if_notwall_left(t_all *all, int x, int y)
 	if (all->map[y][x] == '1')
 		y_ret++;
 	else
-		return (error(all, "Unclosed map"));
+		return (error(all, "Unclosed map notwall left"));
 	return (y_ret);
 }
