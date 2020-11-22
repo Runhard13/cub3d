@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:39:38 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 23:36:28 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 23:57:14 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int find_len (t_all *all, int y)
 	x = 0;
 	while (all->map[y][x])
 		x++;
-	return (x - 1);
+	return (x);
 }
 
 int first_line(t_all *all, int y)
@@ -28,8 +28,8 @@ int first_line(t_all *all, int y)
 
 	while (find_len(all, y) <= all->x_map_min)
 		y++;
-	x = find_len(all, y);
-	while (x > all->x_map_min)
+	x = find_len(all, y) - 1;
+	while (x > all->x_map_min - 1)
 	{
 		if (all->map[y][x] == '1' || all->map[y][x] == ' ')
 			x--;
@@ -57,8 +57,8 @@ int middle_line (t_all *all ,int y)
 	y = y_start;
 	while (find_len(all, y) > all->x_map_min)
 	{
-		x = find_len(all, y);
-		while (x > all->x_map_min)
+		x = find_len(all, y) - 1;
+		while (x > all->x_map_min - 1)
 		{
 			if (all->map[y][x] == '1' || all->map[y][x] == ' ')
 				x--;
