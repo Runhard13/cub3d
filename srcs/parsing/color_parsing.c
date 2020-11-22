@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:11:22 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 20:58:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 12:07:43 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	find_rgb(t_all *all, char *line)
 	all->rgb->r = cub_atoi(line);
 	while (*line && (*line == ' ' || *line == ','))
 		line++;
-	all->rgb->g = cub_atoi(line + get_intlen(all->rgb->r));
+	all->rgb->g = cub_atoi(line + get_intlen(all->rgb->r) + 1);
 	while (*line && (*line == ' ' || *line == ','))
 		line++;
 	all->rgb->b = cub_atoi(line + get_intlen(all->rgb->r) +
-			get_intlen(all->rgb->g));
+			get_intlen(all->rgb->g) + 3);
 }
 
 int		parse_color_floor(t_all *all)
