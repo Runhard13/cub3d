@@ -6,11 +6,12 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 22:36:02 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 19:51:24 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+#include <stdio.h>
 
 int		find_char(const char *s, int c)
 {
@@ -28,31 +29,59 @@ int		find_char(const char *s, int c)
 int		check_first_horizontal(t_all *all, int y)
 {
 	int x;
+	int pos;
+	int len;
+	int len_prev;
 
-	x = 0;
-	while (all->map[y][x])
+	len_prev = 0;
+	while (all->map[y])
 	{
-		if (!((all->map[y][x] == '1' || all->map[y][x] == ' ')))
-			if (all->map[y + 1][x])
-				return (error(all, "Unclosed map"));
-		x++;
+		//len = find_len_x(all, y);
+		//if (len > len_prev)
+		//	x = len_prev;
+		//else
+		x = 0;
+		while (all->map[y][x])
+		{
+			if (all->map[y][x] == '1')
+			{
+				x++;
+			}
+			else if (all->map[y][x] == ' ')
+			{
+				pos = y;
+				while (all->map[pos][x] == ' ' && pos < all->y_map_max)
+					pos++;
+				if (all->map[pos][x] == '1')
+					x++;
+				if (pos == all->y_map_max)
+					x++;
+				else
+					return(error(all, "Unclosed map"));
+			}
+			else if (ft_strchr(NOTWALL, all->map[y][x]))
+			{
+				pos = y;
+				while ((ft_strchr(NOTWALL, all->map[pos][x]) && pos < all->y_map_max))
+					pos++;
+				if (all->map[pos][x] == '1')
+					x++;
+				else
+					return(error(all, "Unclosed map"));
+			}
+		}
+		y++;
+		//len_prev = len;
+
+
+
 	}
-	return (1);
+	return (0);
 }
 
 int		check_last_horizontal(t_all *all, int y)
 {
-	int x;
-
-	x = 0;
-	while (all->map[y][x])
-	{
-		if (!((all->map[y][x] == '1' || all->map[y][x] == ' ')))
-			if (all->map[y - 1][x])
-				return (error(all, "Unclosed map"));
-		x++;
-	}
-	return (1);
+	return (0);
 }
 
 int		check_borders(t_all *all, int y)
@@ -82,6 +111,7 @@ int		map_check(t_all *all)
 	y = 0;
 	while (find_char(CONFIG_CHR, all->map[y][0]))
 		y++;
+	find_map_max (all, y);
 	check_forbidden(all, y);
 	check_first_horizontal(all, y);
 	while (all->map[++y])

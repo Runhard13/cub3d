@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 21:08:48 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/22 16:21:15 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define TEX_W 3
 # define TEX_E 4
 # define CONFIG_CHR "RNESWFC"
+# define NOTWALL "02NESW"
 
 typedef struct		s_data
 {
@@ -179,6 +180,8 @@ typedef struct		s_all
 	int				screenshot;
 	t_sprs			*ss;
 	t_rgb			*rgb;
+	size_t 			y_map_max;
+	size_t 			x_map_max;
 }					t_all;
 
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -233,5 +236,7 @@ int					struct_init2(t_all *all);
 int					check_args (t_all *all, int argc, char **argv);
 int					init_params(t_all *all);
 void				draw_all(t_all *all);
+void				find_map_max(t_all *all, int y);
+int 				find_len_x(t_all *all, int y);
 
 #endif
