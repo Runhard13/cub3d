@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:39:38 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 23:57:14 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 00:25:29 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,31 @@ int extra_len_check(t_all *all, int y)
 {
 	while (y < all->y_map_max - 1)
 		return(first_line(all, y));
+	return (0);
+}
+
+int check_left_back(t_all *all, int y)
+{
+	int x;
+	int y_start;
+
+	x = 0;
+	y_start = all->y_map_max;
+	while (x <= all->x_map_min)
+	{
+		while (y_start > y)
+		{
+			if (all->map[y_start][x] == '1')
+				y_start--;
+			else if (all->map[y_start][x] == ' ')
+				y_start = if_space_left_back(all, x, y_start, y);
+			else if (ft_strchr(NOTWALL, all->map[y_start][x]))
+				y_start = if_notwall_left_back(all, x, y_start, y);
+		}
+		x++;
+		y_start = all->y_map_max;
+	}
+	y_start = all->y_map_max;
+	extra_len_check_back(all, y_start, y);
 	return (0);
 }
