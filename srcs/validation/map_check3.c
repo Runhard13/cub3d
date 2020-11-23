@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 12:40:55 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 14:29:12 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:59:42 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ void add_spaces (t_all *all, const char *line, size_t num, int i)
 		j++;
 	}
 	dst[j] = '\0';
-
 	all->map_sp[i] = dst;
-	free(dst);
 }
 
 int make_space_map (t_all *all, int y)

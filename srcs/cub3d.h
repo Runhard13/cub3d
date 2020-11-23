@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 14:04:56 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 18:57:53 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,8 @@ typedef struct		s_all
 	int 			y_map_max;
 	int 			x_map_max;
 	char 			**map_sp;
+	size_t 			map_size;
+	size_t 			map_sp_size;
 }					t_all;
 
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
