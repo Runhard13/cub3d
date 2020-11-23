@@ -6,7 +6,7 @@
 #    By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/03 22:13:29 by cdrennan          #+#    #+#              #
-#    Updated: 2020/11/18 21:32:03 by cdrennan         ###   ########.fr        #
+#    Updated: 2020/11/23 15:08:09 by cdrennan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,26 +15,24 @@ NAME	= Cub3D
 CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
-LIBS	= -L libft/ -lft ${MLX_LNK} -lm
+LIBS	= -L libft/ -lft ${MLX_LNK}
 
-INC		= -I . -I libft/ -I $(MLX_DIR)
+INC		= -I srcs/ -I libft/ -I $(MLX_DIR)
 
 OBJS	= ${SRCS:.c=.o}
 
-SRCS	= main.c player/hooks.c texture/drawing_utils.c parsing/map_parsing.c texture/tex_utils.c sprite/sprite_utils.c \
- player/player_movement.c parsing/resolution_parsing.c parsing/path_parsing.c parsing/player_parsing.c parsing/color_parsing.c \
- parsing/sprite_parsing.c game_config.c texture/tex_drawing.c sprite/sprite_drawing.c \
- player/rays.c validation/exit.c validation/errors.c validation/map_check.c validation/map_check2.c create_buffer.c validation/map_check3.c \
- screenshot.c
+SRCS	= srcs/main.c srcs/player/hooks.c srcs/texture/drawing_utils.c srcs/parsing/map_parsing.c srcs/texture/tex_utils.c srcs/sprite/sprite_utils.c\
+                  srcs/player/player_movement.c srcs/parsing/resolution_parsing.c srcs/parsing/path_parsing.c srcs/parsing/player_parsing.c srcs/parsing/color_parsing.c\
+                  srcs/parsing/sprite_parsing.c srcs/utils/game_config.c srcs/texture/tex_drawing.c srcs/sprite/sprite_drawing.c srcs/player/rays.c\
+                  srcs/validation/exit.c srcs/validation/errors.c srcs/validation/map_check.c srcs/validation/map_check2.c\
+                  srcs/utils/screenshot.c srcs/utils/game_config2.c srcs/validation/map_check3.c
+
 
 MLX_DIR	= minilibx_mms_20200219
 MLX_LNK	= -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INC)
-
 ${NAME}: $(OBJS) ft mlx
-	$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBS) -o $(NAME)
 
 mlx:
 	make -C $(MLX_DIR)
@@ -55,4 +53,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus mlx ft
+run:
+	./cub3D srcs/maps/map.cub
+
+.PHONY: all clean fclean re  mlx ft

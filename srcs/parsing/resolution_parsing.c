@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 13:05:40 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 20:58:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:59:10 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,14 @@ int		get_intlen(int n)
 	return (len);
 }
 
-int		cub_atoi(const char *str)
-{
-	size_t	result;
-	int		i;
-
-	i = 0;
-	result = 0;
-	while ((str[i] == ' '))
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result *= 10;
-		result += str[i++] - 48;
-	}
-	return ((int)result);
-}
-
 void	eval_resolution(t_all *all, char *line)
 {
 	line += 1;
-	all->w = cub_atoi(line);
+	all->w = ft_atoi(line);
 	while (*line && *line == ' ')
 		line++;
 	line += get_intlen(all->w);
-	all->h = cub_atoi(line);
+	all->h = ft_atoi(line);
 }
 
 int		parse_resolution(t_all *all)

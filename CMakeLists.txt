@@ -6,7 +6,7 @@ set(SOURCE_EXE srcs/main.c srcs/player/hooks.c srcs/texture/drawing_utils.c srcs
         srcs/player/player_movement.c srcs/parsing/resolution_parsing.c srcs/parsing/path_parsing.c srcs/parsing/player_parsing.c srcs/parsing/color_parsing.c
         srcs/parsing/sprite_parsing.c srcs/utils/game_config.c srcs/texture/tex_drawing.c srcs/sprite/sprite_drawing.c srcs/player/rays.c
         srcs/validation/exit.c srcs/validation/errors.c srcs/validation/map_check.c srcs/validation/map_check2.c
-        srcs/validation/map_check3.c srcs/utils/screenshot.c srcs/utils/game_config2.c srcs/validation/map_check4.c srcs/validation/map_check5.c srcs/validation/map_check6.c srcs/validation/map_check7.c srcs/validation/map_aaaaaaaaaa.c)
+        srcs/utils/screenshot.c srcs/utils/game_config2.c srcs/validation/map_check3.c)
 
 
 
