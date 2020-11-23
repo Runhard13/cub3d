@@ -6,7 +6,7 @@
 #    By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/03 22:13:29 by cdrennan          #+#    #+#              #
-#    Updated: 2020/11/23 15:08:09 by cdrennan         ###   ########.fr        #
+#    Updated: 2020/11/23 15:11:02 by cdrennan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,9 @@ MLX_LNK	= -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 ${NAME}: $(OBJS) ft mlx
 	@$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBS) -o $(NAME)
+	@cp $(MLX_DIR)/libmlx.dylib ./
+	@cp libft/libft.a ./
+
 
 mlx:
 	make -C $(MLX_DIR)
