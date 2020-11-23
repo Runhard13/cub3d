@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 00:11:44 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 00:54:30 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 11:13:09 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 #include "../cub3d.h"
 
@@ -105,4 +105,28 @@ int if_notwall_left_back(t_all *all, int x, int y_start, int y)
 	else
 		return (error(all, "Unclosed map notwall left back"));
 	return (y_ret);
+}
+
+int		ft_mapcheck(t_all *all, int y)
+{
+	int		x;
+
+	while (y < all->y_map_max)
+	{
+		x = 0;
+		while (x < all->x_map_max)
+		{
+			if (all->map_sp[y][x] != '1' && y == 0)
+				return (error(all, "Unclosed map 1"));
+			else if (all->map_sp[y][x] != '1' && y == all->y_map_max)
+				return (error(all, "Unclosed map 2"));
+			else if (all->map_sp[y][x] != '1' && x == 0)
+				return (error(all, "Unclosed map 3"));
+			else if (all->map_sp[y][x] != '1' && x == all->x_map_max - 1)
+				return (error(all, "Unclosed map 4"));
+			x++;
+		}
+		y++;
+	}
+	return (1);
 }

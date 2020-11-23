@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 00:28:05 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:16:07 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,15 @@ int		map_check(t_all *all)
 	while (find_char(CONFIG_CHR, all->map[y][0]))
 		y++;
 	find_map_max(all, y);
+	all->map_sp = malloc(all->y_map_max * sizeof(char*));
 	check_forbidden(all, y);
-	check_horizontal(all, y);
-	check_horizontal_back(all, y);
-	check_left(all, y);
-	check_left_back(all, y);
+	make_space_map (all, y);
+	mapcheck(all);
+	//check_horizontal(all, y);
+	//check_horizontal_back(all, y);
+	//check_left(all, y);
+	//check_left_back(all, y);
+	//map_ccceck(all, y);
+	//ft_mapcheck(all, y);
 	return (1);
 }

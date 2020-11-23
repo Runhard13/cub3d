@@ -69,7 +69,7 @@ void find_map_max (t_all *all, int y)
 		x = 0;
 		y++;
 	}
-	all->x_map_max = x_max;
+	all->x_map_max = x_max - 1;
 	all->y_map_max = y - 1;
 	all->x_map_min = x_min;
 }

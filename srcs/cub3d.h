@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/22 16:21:15 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:00:15 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define TEX_E 4
 # define CONFIG_CHR "RNESWFC"
 # define NOTWALL "02NESW"
+# define VALID_MAP_CHARACTERS " 01234NSEW"
 
 typedef struct		s_data
 {
@@ -180,8 +181,10 @@ typedef struct		s_all
 	int				screenshot;
 	t_sprs			*ss;
 	t_rgb			*rgb;
-	size_t 			y_map_max;
-	size_t 			x_map_max;
+	int 			y_map_max;
+	int 			x_map_max;
+	int 			x_map_min;
+	char 			**map_sp;
 }					t_all;
 
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -237,6 +240,24 @@ int					check_args (t_all *all, int argc, char **argv);
 int					init_params(t_all *all);
 void				draw_all(t_all *all);
 void				find_map_max(t_all *all, int y);
-int 				find_len_x(t_all *all, int y);
-
+int					if_space(t_all *all, int x, int y);
+int					if_notwall (t_all *all, int x, int y);
+int					if_notwall_back(t_all *all, int x, int y, int y_start);
+int					if_space_back(t_all *all, int x, int y, int y_start);
+int					if_space_left(t_all *all, int x, int y);
+int					if_notwall_left(t_all *all, int x, int y);
+int					find_len (t_all *all, int y);
+int					first_line(t_all *all, int y);
+int					middle_line (t_all *all ,int y);
+int					extra_len_check (t_all *all, int y);
+int					check_left( t_all *all, int y);
+int					extra_len_check_back(t_all *all, int y_start, int y);
+int					middle_line_back (t_all *all, int y_start, int y);
+int					check_left_back(t_all *all, int y);
+int					if_space_left_back(t_all *all, int x, int y_start, int y);
+int					if_notwall_left_back(t_all *all, int x, int y_start, int y);
+int					ft_mapcheck(t_all *all, int y);
+int					map_ccceck(t_all *all, int y);
+void				make_space_map (t_all *all, int y);
+int					mapcheck(t_all *all);
 #endif
