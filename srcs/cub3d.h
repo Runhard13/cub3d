@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 22:12:19 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 18:57:53 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:30:03 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,17 +180,17 @@ typedef struct		s_all
 	int				screenshot;
 	t_sprs			*ss;
 	t_rgb			*rgb;
-	int 			y_map_max;
-	int 			x_map_max;
-	char 			**map_sp;
-	size_t 			map_size;
-	size_t 			map_sp_size;
+	int				y_map_max;
+	int				x_map_max;
+	char			**map_sp;
+	size_t			map_size;
+	size_t			map_sp_size;
 }					t_all;
 
 void				my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int					key_press(int keycode, t_all *all);
 char				**make_map(t_list **head, size_t size);
-char				**read_map (int fd);
+char				**read_map (int fd, t_all *all);
 void				drawscreen(t_all *all);
 void				parse_player(t_all *all);
 int					tex_open(t_all *all);
@@ -241,4 +241,8 @@ void				draw_all(t_all *all);
 void				find_map_max(t_all *all, int y);
 int					make_space_map (t_all *all, int y);
 int					mapcheck(t_all *all);
+int					error_wo_all(char *msg);
+void				free_tab(char **tab, size_t size);
+int					error_map(t_all *all, char *msg);
+
 #endif

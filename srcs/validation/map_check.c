@@ -66,6 +66,8 @@ int		check_starting_point(t_all *all)
 		}
 		y++;
 	}
+	if (i == 0)
+		return (0);
 	return (i > 1 ? 0 : 1);
 }
 
@@ -88,7 +90,7 @@ int		check_floor_sky(t_all *all)
 int		validate_map(t_all *all)
 {
 	if (!(check_starting_point(all)))
-		return (error(all, "More than 1 starting point"));
+		return (error(all, "Problems with player starting point"));
 	if (!(check_path_tex(all)))
 		return (error(all, "Invalid texture config in map"));
 	if (!(check_floor_sky(all)))

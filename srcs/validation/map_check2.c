@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 18:37:42 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 18:57:53 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:06:37 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		find_char(const char *s, int c)
 		return (1);
 	return (0);
 }
-
 
 int		map_check(t_all *all)
 {
@@ -64,21 +63,21 @@ int		check_forbidden(t_all *all, int y)
 int		starting_points(t_all *all, int x, int y)
 {
 	if (all->map[y][x] == 'N' && (all->map[y][x + 1] == '0' ||
-								  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+	all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
 		return (1);
 	if (all->map[y][x] == 'W' && (all->map[y][x + 1] == '0' ||
-								  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+	all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
 		return (1);
 	if (all->map[y][x] == 'S' && (all->map[y][x + 1] == '0' ||
-								  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+	all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
 		return (1);
 	if (all->map[y][x] == 'E' && (all->map[y][x + 1] == '0' ||
-								  all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
+	all->map[y][x + 1] == '1' || all->map[y][x + 1] == '2'))
 		return (1);
 	return (0);
 }
 
-void find_map_max (t_all *all, int y)
+void	find_map_max(t_all *all, int y)
 {
 	int x;
 	int x_max;

@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 16:08:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 20:58:59 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/24 10:06:49 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ int				save_screenshot(t_all *all)
 		i++;
 	}
 	close(fd);
-	return (0);
+	exit (0);
 }

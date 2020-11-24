@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 20:49:16 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/23 18:57:53 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:09:50 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 	check_args(&all, argc, argv);
 	path = argv[1];
 	fd = open_fd(&all, path);
-	all.map = read_map(fd);
+	all.map = read_map(fd, &all);
 	if (!(img.mlx = mlx_init()))
-		return (error(&all, "MLX can't init"));
+		return (error_map(&all, "MLX can't init"));
 	init_params(&all);
 	if (!(img.mlx_win = mlx_new_window(img.mlx, all.w, all.h, "cub")))
 		return (error(&all, "MLX can't create new window"));

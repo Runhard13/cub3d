@@ -31,7 +31,7 @@ char	**make_map(t_list **head, size_t size)
 	return (map);
 }
 
-char	**read_map(int fd)
+char	**read_map(int fd, t_all *all)
 {
 	char	*str;
 	t_list	*head;
@@ -49,6 +49,7 @@ char	**read_map(int fd)
 	ft_lstadd_back(&head, ft_lstnew(str));
 	amount++;
 	close(fd);
+	all->map_size = amount;
 	return (make_map(&head, amount));
 }
 

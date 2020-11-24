@@ -6,7 +6,7 @@
 /*   By: cdrennan <cdrennan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 14:21:46 by cdrennan          #+#    #+#             */
-/*   Updated: 2020/11/21 20:58:17 by cdrennan         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:59:29 by cdrennan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int		parse_path_sprite(t_all *all)
 			tmp = line;
 			line++;
 			another_tmp = all->sprite->path;
-			all->sprite->path = ft_strtrim(line, " ");
+			if (!(all->sprite->path = ft_strtrim(line, " ")))
+				return (error(all, "Malloc error parse_path_sprite"));
 			free(tmp);
 			free(another_tmp);
 		}
