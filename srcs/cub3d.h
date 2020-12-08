@@ -244,5 +244,6 @@ int					mapcheck(t_all *all);
 int					error_wo_all(char *msg);
 void				free_tab(char **tab, size_t size);
 int					error_map(t_all *all, char *msg);
+int					ft_atoi_cub(const char *str);
 
 #endif

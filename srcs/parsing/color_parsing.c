@@ -26,13 +26,13 @@ int		create_trgb(int t, int r, int g, int b)
 
 void	find_rgb(t_all *all, char *line)
 {
-	all->rgb->r = ft_atoi(line);
+	all->rgb->r = ft_atoi_cub(line);
 	while (*line && (*line == ' ' || *line == ','))
 		line++;
-	all->rgb->g = ft_atoi(line + get_intlen(all->rgb->r) + 1);
+	all->rgb->g = ft_atoi_cub(line + get_intlen(all->rgb->r) + 1);
 	while (*line && (*line == ' ' || *line == ','))
 		line++;
-	all->rgb->b = ft_atoi(line + get_intlen(all->rgb->r) +
+	all->rgb->b = ft_atoi_cub(line + get_intlen(all->rgb->r) +
 			get_intlen(all->rgb->g) + 3);
 }
 

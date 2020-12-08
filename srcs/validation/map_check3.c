@@ -44,7 +44,7 @@ int		make_space_map(t_all *all, int y)
 	{
 		if (!(line = line_allocation(all->map[y])))
 			return (error(all, "Malloc error make_space_map"));
-		num = (size_t)all->x_map_max + 1;
+		num = (size_t)all->x_map_max + 2;
 		if (num > 0)
 			add_spaces(all, line, num, i);
 		free(line);
